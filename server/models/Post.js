@@ -16,14 +16,10 @@ const postSchema = new mongoose.Schema({
     }],
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Comment'
     }],
-    createdAt: {
-        type: Date,
-        default: Date.now },
-    updatedAt: {
-        type: Date,
-        default: Date.now }
+    createdAt: {type: Date, default: Date.now },
+    updatedAt: {type: Date, default: Date.now }
 })
 
 export const Post = mongoose.model('Post', postSchema)
