@@ -72,3 +72,58 @@ export const commentPost = async (req, res) => {
         console.log(err)
     }
 }
+
+export const getPost  = async (req, res) => {
+    const { postId } = req.params
+
+    try {
+        const post = await Post.findById( postId )
+
+        if (!post)
+            return res.status(400).json({message: 'Post could not be found!'})
+
+        res.status(200).json({message: "Post found successfully!", post })
+    } catch (err) {
+        res.status(500).json({message: 'Something went wrong while getting the post!'})
+        console.log(err)
+    }
+}
+
+export const getComments = async (req, res) => {
+    const { postId } = req.params
+
+    try {
+        const comments = await Comment.find({ parentPost: postId, parentComment: null })
+            .populate('author', 'nickname profilePicture')
+
+        if (!comments.length)
+            return res.status(200).json({ message: 'No comments found!', comments: [] })
+
+        res.status(200).json({ message: 'Comments retrieved successfully!', comments })
+    } catch (err) {
+        res.status(500).json({ message: 'Something went wrong while retrieving comments!', err })
+        console.log(err)
+    }
+}
+
+export const getPostsByUser = async (req, res) => {
+    const userId = req.user.id
+
+    try {
+        const user = await findById( userId )
+
+        if (!user)
+            return res.status(400).json({message: 'User not found with that userId!'})
+
+        const posts = await Post.find({ author: userId })
+            .populate('author', 'username profilePicture')
+            .sort({ createdAt: -1 })
+
+        if (!posts.length)
+            return res.status(200).json({ message: 'No posts found for this user!', posts: [] })
+
+        res.status(200).json({ message: 'Posts retrieved successfully!', posts })
+    } catch (err) {
+        res.status(500).json({ message: 'Something went wrong while retrieving posts!', err})
+    }
+}
