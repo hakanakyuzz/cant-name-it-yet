@@ -49,9 +49,26 @@ export const loginUser = async (req, res) => {
             { user: { id: user._id } },
             process.env.JWT_SECRET
         )
+
         res.status(200).json({message: "User logged in successfully!", token })
     } catch (err) {
         res.status(500).send('Something went wrong while logging user!')
+        console.log(err)
+    }
+}
+
+export const getUser = async (req, res) => {
+    const { userId } = req.params
+
+    try {
+        const user = await User.findById( userId )
+
+        if (!user)
+            return res.status(400).json({message: 'User could not be found!'})
+
+        res.status(200).json({message: "User found successfully!", user })
+    } catch (err) {
+        res.status(500).send('Something went wrong while getting the user!')
         console.log(err)
     }
 }
