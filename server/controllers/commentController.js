@@ -1,5 +1,4 @@
 import { Comment } from '../models/Comment.js';
-import {Post} from "../models/Post.js";
 
 export const replyComment = async (req, res) => {
     const { commentId } = req.params
@@ -55,6 +54,27 @@ export const likeComment = async (req, res) => {
 
     } catch (err) {
         res.status(500).json({ message: "Something went wrong while toggling the like on the comment!", err})
+        console.log(err)
+    }
+}
+
+export const getReplies  = async (req, res) => {
+    const { commentId } = req.params
+
+    try {
+        const replies = await Comment.find({ parentComment: commentId })
+            .populate('author', 'username profilePicture')
+            .populate({
+                path: 'replies',
+                populate: { path: 'author', select: 'username profilePicture' }
+            })
+
+        if (!replies.length)
+            return res.status(200).json({ message: 'No replies found!', replies: [] })
+
+        res.status(200).json({ message: 'Replies retrieved successfully!', replies })
+    } catch (err) {
+        res.status(500).json({ message: "Something went wrong while retrieving replies!", err})
         console.log(err)
     }
 }
