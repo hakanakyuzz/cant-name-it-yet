@@ -49,7 +49,7 @@ export const loginUser = async (req, res) => {
             { user: { id: user._id } },
             process.env.JWT_SECRET
         )
-        res.status(200).json({ token })
+        res.status(200).json({message: "User logged in successfully!", token })
     } catch (err) {
         res.status(500).send('Something went wrong while logging user!')
         console.log(err)

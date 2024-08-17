@@ -1,4 +1,5 @@
 import { Comment } from '../models/Comment.js';
+import {Post} from "../models/Post.js";
 
 export const replyComment = async (req, res) => {
     const { commentId } = req.params
@@ -27,5 +28,33 @@ export const replyComment = async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: "Something went wrong while replying to the comment!", error: err.message })
         console.error(err)
+    }
+}
+
+export const likeComment = async (req, res) => {
+    const { commentId } = req.params
+    const userId = req.user.id
+
+    try {
+        const comment = await Comment.findById(commentId)
+
+        if (!comment)
+            return res.status(404).json({ message: "Comment not found!" })
+
+        const likeIndex = comment.likes.indexOf(userId)
+
+        if (likeIndex === -1) {
+            comment.likes.push(userId)
+            res.status(200).json({ message: "Comment liked successfully", comment })
+        } else {
+            comment.likes.splice(likeIndex, 1)
+            res.status(200).json({ message: "Comment unliked successfully", comment })
+        }
+
+        await comment.save()
+
+    } catch (err) {
+        res.status(500).json({ message: "Something went wrong while toggling the like on the comment!", err})
+        console.log(err)
     }
 }
