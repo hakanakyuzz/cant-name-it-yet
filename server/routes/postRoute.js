@@ -7,7 +7,7 @@ import {
     getPostsByUser,
     likePost
 } from "../controllers/postController.js";
-import {authMiddleware} from "../middlewares/authMiddleware.js";
+import {authMiddleware} from "../middlewares/middlewares.js";
 
 const router = express.Router()
 
