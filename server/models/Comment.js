@@ -17,15 +17,30 @@ const commentSchema = new mongoose.Schema({
     parentPost: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post',
-        required: false
+        required: true
     },
     parentComment: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
         required: false
     },
+    isReply: {
+        type: Boolean,
+        default: false
+    },
+    replies: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
+})
+
+commentSchema.pre('save', function(next) {
+    if (this.isReply)
+        this.replies = undefined
+
+    next()
 })
 
 export const Comment = mongoose.model('Comment', commentSchema)

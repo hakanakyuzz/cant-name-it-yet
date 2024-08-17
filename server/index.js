@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import {userRoute} from "./routes/userRoute.js";
 import {postRoute} from "./routes/postRoute.js";
+import {commentRoute} from "./routes/commentRoute.js";
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.DATABASE_URL)
 
 app.use('/api/user', userRoute)
 app.use('/api/post', postRoute)
+app.use('/api/comment', commentRoute)
 
 const PORT = process.env.PORT || 3000
 
