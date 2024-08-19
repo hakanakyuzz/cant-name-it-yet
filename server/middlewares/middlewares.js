@@ -17,7 +17,7 @@ export const authMiddleware = async (req, res, next) => {
         req.user = decoded.user
         next()
     } catch (err) {
-        res.status(401).json({ message: 'Token is not valid', err })
+        res.status(401).json({ message: 'Something went wrong while authenticating the user! ', err })
         console.log(err)
     }
 }

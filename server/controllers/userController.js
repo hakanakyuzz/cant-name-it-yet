@@ -10,7 +10,7 @@ export const refreshToken = async (req, res) => {
         return res.status(401).json({ message: 'No token provided!' })
 
     try {
-        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET)
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN)
         const user = await User.findById(decoded.user.id)
 
         if (!user || user.tokenVersion !== decoded.user.tokenVersion)
@@ -19,7 +19,7 @@ export const refreshToken = async (req, res) => {
         const newAccessToken = generateAccessToken(user)
         res.status(200).json({ accessToken: newAccessToken })
     } catch (err) {
-        res.status(403).json({ message: 'Invalid token', err })
+        res.status(403).json({ message: 'Somthing went wrong while refreshing the token!', err })
         console.log(err)
     }
 }
@@ -95,7 +95,9 @@ export const deleteUser = async (req, res) => {
     const userId = req.resource._id
 
     try {
-        await userId.deleteOne({ userId })
+        await User.findByIdAndDelete(userId)
+
+        res.status(200).json({ message: 'User deleted successfully!' })
     } catch (err) {
         res.status(500).send('Something went wrong while deleting the user!')
         console.log(err)
