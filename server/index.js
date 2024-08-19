@@ -13,7 +13,7 @@ app.use(express.json())
 
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log('Could not connect to MongoDB!', err));
+    .catch(err => console.log('Could not connect to MongoDB!', err))
 
 app.use('/api/user', userRoute)
 app.use('/api/post', postRoute)
