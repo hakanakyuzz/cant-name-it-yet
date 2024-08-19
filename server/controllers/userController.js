@@ -1,7 +1,28 @@
 import {User} from '../models/User.js';
 import bcrypt from "bcrypt";
-
+import jwt from "jsonwebtoken";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
+
+export const refreshToken = async (req, res) => {
+    const refreshToken = req.header('Authorization').replace('Bearer ', '')
+
+    if (!refreshToken)
+        return res.status(401).json({ message: 'No token provided!' })
+
+    try {
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET)
+        const user = await User.findById(decoded.user.id)
+
+        if (!user || user.tokenVersion !== decoded.user.tokenVersion)
+            return res.status(403).json({ message: 'Invalid token!' })
+
+        const newAccessToken = generateAccessToken(user)
+        res.status(200).json({ accessToken: newAccessToken })
+    } catch (err) {
+        res.status(403).json({ message: 'Invalid token', err })
+        console.log(err)
+    }
+}
 
 export const registerUser = async (req, res) => {
     const { email, password } = req.body
