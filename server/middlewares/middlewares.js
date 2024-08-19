@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import {User} from "../models/User.js";
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = async (req, res, next) => {
     const token = req.header('Authorization')
 
     if (!token)
@@ -8,6 +9,11 @@ export const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT)
+        const user = await User.findById(decoded.user.id)
+
+        if (!user || user.tokenVersion !== decoded.user.tokenVersion)
+            return res.status(403).json({ message: 'User does not exist or invalid token version!' })
+
         req.user = decoded.user
         next()
     } catch (err) {
@@ -23,7 +29,6 @@ export const checkOwnership = (model, resourceField) =>
 
         try {
             const resource = await model.findById(resourceId)
-            console.log(resource)
 
             if (!resource)
                 return res.status(404).json({ message: `${model.modelName} not found` })
