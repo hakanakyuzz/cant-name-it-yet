@@ -1,4 +1,5 @@
 import { Comment } from '../models/Comment.js';
+import {Post} from "../models/Post.js";
 
 export const replyComment = async (req, res) => {
     const { commentId } = req.params
@@ -75,6 +76,26 @@ export const getReplies  = async (req, res) => {
         res.status(200).json({ message: 'Replies retrieved successfully!', replies })
     } catch (err) {
         res.status(500).json({ message: "Something went wrong while retrieving replies!", err})
+        console.log(err)
+    }
+}
+
+export const deleteComment = async (req, res) => {
+    const comment = req.resource
+
+    try {
+        await Post.findByIdAndUpdate(comment.parentPost, {
+            $pull: { comments: comment._id }
+        })
+
+        if (comment.replies.length > 0)
+            await Comment.deleteMany({ _id: { $in: comment.replies } })
+
+        await comment.deleteOne()
+
+        res.status(200).json({ message: 'Comment deleted successfully!' })
+    } catch (err) {
+        res.status(500).send('Something went wrong while deleting the comment!')
         console.log(err)
     }
 }
