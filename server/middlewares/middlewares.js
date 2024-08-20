@@ -8,7 +8,7 @@ export const authMiddleware = async (req, res, next) => {
         return res.status(401).json({ message: 'No token, authorization denied!' })
 
     try {
-        const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT)
+        const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.ACCESS_TOKEN)
         const user = await User.findById(decoded.user.id)
 
         if (!user || user.tokenVersion !== decoded.user.tokenVersion)

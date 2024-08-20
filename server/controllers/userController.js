@@ -1,47 +1,16 @@
 import {User} from '../models/User.js';
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
-
-export const refreshToken = async (req, res) => {
-    const refreshToken = req.cookies.refreshToken
-
-    if (!refreshToken)
-        return res.status(401).json({ message: 'No token provided!' })
-
-    try {
-        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN)
-        const user = await User.findById(decoded.user.id)
-
-        if (!user || user.tokenVersion !== decoded.user.tokenVersion)
-            return res.status(403).json({ message: 'Invalid token!' })
-
-        const newAccessToken = generateAccessToken(user)
-        const newRefreshToken = generateRefreshToken(user)
-
-        res.cookie('refreshToken', newRefreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-        })
-        res.status(200).json({ accessToken: newAccessToken })
-    } catch (err) {
-        res.status(403).json({ message: 'Somthing went wrong while refreshing the token!', err })
-        console.log(err)
-    }
-}
 
 export const registerUser = async (req, res) => {
     const { email, password, nickname } = req.body
 
     try {
         const userExist = await User.findOne({ email })
-        const nicknameExist = await User.findOne({ nickname })
-
         if (userExist)
             return res.status(400).json({ message: 'User already exists!' })
 
+        const nicknameExist = await User.findOne({ nickname })
         if (nicknameExist)
             return res.status(400).json({ message: 'This nickname already exists!' })
 
@@ -56,8 +25,14 @@ export const registerUser = async (req, res) => {
         const accessToken = generateAccessToken(user)
         const refreshToken = generateRefreshToken(user)
 
-        res.status(201).json({ message: "User registered successfully!", accessToken, refreshToken, user })
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        })
 
+        res.status(201).json({ message: "User registered successfully!", accessToken, user })
     } catch (err) {
         res.status(500).send('Something went wrong while registering user!')
         console.log(err)
@@ -80,7 +55,14 @@ export const loginUser = async (req, res) => {
         const accessToken = generateAccessToken(user)
         const refreshToken = generateRefreshToken(user)
 
-        res.status(200).json({ message: "User logged in successfully!", accessToken, refreshToken })
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        })
+
+        res.status(200).json({ message: "User logged in successfully!", accessToken })
     } catch (err) {
         res.status(500).send('Something went wrong while logging user!')
         console.log(err)
