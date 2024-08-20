@@ -15,6 +15,7 @@ export const authMiddleware = async (req, res, next) => {
             return res.status(403).json({ message: 'User does not exist or invalid token version!' })
 
         req.user = decoded.user
+        console.log(req.user)
         next()
     } catch (err) {
         res.status(401).json({ message: 'Something went wrong while authenticating the user! ', err })
@@ -36,12 +37,12 @@ export const checkOwnership = (model, resourceField) =>
             const isUserResource = model.modelName === 'User'
 
             if (isUserResource) {
-                if (resource._id.toString() !== userId.toString())
+                if (resource._id.toString() !== userId)
                     return res.status(403).json({ message: 'You are not authorized to access this user' })
             }
             else
-                if (resource.author !== userId.toString())
-                    return res.status(403).json({message: `You are not authorized to access this ${resourceField}`})
+                if (resource.author.toString() !== userId)
+                    return res.status(403).json({message: `You are not authorized to access this ${model.modelName}`})
 
             req.resource = resource
 

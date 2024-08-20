@@ -8,7 +8,7 @@ const router = express.Router()
 router.post('/refresh-token', refreshToken)
 router.post('/register' , registerUser)
 router.post('/login', loginUser)
-router.get('/profile/:userId', getUser)
+router.get('/:userId', getUser)
 router.delete('/:userId', authMiddleware, checkOwnership(User, 'userId'), deleteUser)
 
 export {router as userRoute}

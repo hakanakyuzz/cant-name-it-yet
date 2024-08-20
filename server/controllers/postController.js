@@ -3,10 +3,9 @@ import { Comment } from '../models/Comment.js';
 
 export const createPost = async (req, res) => {
     const { content } = req.body
+    const userId = req.user.id
 
     try {
-        const userId = req.user.id
-
         const post = await Post.create({
             author: userId,
             content
@@ -127,3 +126,21 @@ export const getPostsByUser = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong while retrieving posts!', err})
     }
 }
+
+export const deletePost = async (req, res) => {
+    const post = req.resource
+
+    try {
+        if (!post)
+            return res.status(400).json({message: 'Post not found!'})
+
+        await Comment.deleteMany({ parentPost: post._id })
+        await Post.findByIdAndDelete(post._id)
+
+        res.status(200).json({ message: 'Post deleted successfully!' })
+    } catch (err) {
+        res.status(500).send('Something went wrong while deleting the post!')
+        console.log(err)
+    }
+}
+
