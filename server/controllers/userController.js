@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
 
 export const refreshToken = async (req, res) => {
-    const refreshToken = req.header('Authorization').replace('Bearer ', '')
+    const refreshToken = req.cookies.refreshToken
 
     if (!refreshToken)
         return res.status(401).json({ message: 'No token provided!' })
@@ -17,6 +17,14 @@ export const refreshToken = async (req, res) => {
             return res.status(403).json({ message: 'Invalid token!' })
 
         const newAccessToken = generateAccessToken(user)
+        const newRefreshToken = generateRefreshToken(user)
+
+        res.cookie('refreshToken', newRefreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        })
         res.status(200).json({ accessToken: newAccessToken })
     } catch (err) {
         res.status(403).json({ message: 'Somthing went wrong while refreshing the token!', err })
@@ -25,13 +33,17 @@ export const refreshToken = async (req, res) => {
 }
 
 export const registerUser = async (req, res) => {
-    const { email, password } = req.body
+    const { email, password, nickname } = req.body
 
     try {
         const userExist = await User.findOne({ email })
+        const nicknameExist = await User.findOne({ nickname })
 
         if (userExist)
-            return res.status(400).json({message: 'User already exists!'})
+            return res.status(400).json({ message: 'User already exists!' })
+
+        if (nicknameExist)
+            return res.status(400).json({ message: 'This nickname already exists!' })
 
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
@@ -44,7 +56,7 @@ export const registerUser = async (req, res) => {
         const accessToken = generateAccessToken(user)
         const refreshToken = generateRefreshToken(user)
 
-        res.status(201).json({message: "User registered successfully!", accessToken, refreshToken, user})
+        res.status(201).json({ message: "User registered successfully!", accessToken, refreshToken, user })
 
     } catch (err) {
         res.status(500).send('Something went wrong while registering user!')
