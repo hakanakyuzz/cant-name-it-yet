@@ -18,7 +18,6 @@ export const authMiddleware = async (req, res, next) => {
             return res.status(403).json({ message: 'Token version mismatch!' })
 
         req.user = decoded.user
-        console.log(req.user)
         next()
     } catch (err) {
         res.status(401).json({ message: 'Authentication error: Unable to authenticate the user!', err })

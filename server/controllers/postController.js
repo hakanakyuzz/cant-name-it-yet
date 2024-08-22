@@ -64,7 +64,8 @@ export const commentPost = async (req, res) => {
             content
         })
 
-        await Comment.findByIdAndUpdate(postId, { $push: { comments: comment._id } })
+        post.comments.push(comment._id)
+        await post.save()
 
         res.status(201).json({ message: 'Comment added to the post successfully!', comment })
     } catch (err) {
