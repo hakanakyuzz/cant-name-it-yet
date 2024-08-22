@@ -14,8 +14,8 @@ export const createPost = async (req, res) => {
 
         res.status(201).json({ message: "Post created successfully!", post })
     } catch (err) {
-        res.status(500).json({ message: "Post creation error: Unable to create the post!", err })
         console.log(err)
+        res.status(500).json({ message: "Post creation error: Unable to create the post!", err })
     }
 }
 
@@ -42,8 +42,8 @@ export const likePost = async (req, res) => {
         await post.save()
 
     } catch (err) {
-        res.status(500).json({ message: "Like toggle error: Unable to update the like on the post!", err})
         console.log(err)
+        res.status(500).json({ message: "Like toggle error: Unable to update the like on the post!", err})
     }
 }
 
@@ -69,8 +69,8 @@ export const commentPost = async (req, res) => {
 
         res.status(201).json({ message: 'Comment added to the post successfully!', comment })
     } catch (err) {
-        res.status(500).json({ message: "Comment error: Unable to add a comment to the post!", err})
         console.log(err)
+        res.status(500).json({ message: "Comment error: Unable to add a comment to the post!", err})
     }
 }
 
@@ -85,8 +85,8 @@ export const getPost  = async (req, res) => {
 
         res.status(200).json({message: "Post found successfully!", post })
     } catch (err) {
-        res.status(500).json({message: 'Post retrieval error: Unable to retrieve the post!'})
         console.log(err)
+        res.status(500).json({message: 'Post retrieval error: Unable to retrieve the post!'})
     }
 }
 
@@ -102,8 +102,8 @@ export const getComments = async (req, res) => {
 
         res.status(200).json({ message: 'Comments retrieved successfully!', comments })
     } catch (err) {
-        res.status(500).json({ message: 'Comment retrieval error: Unable to retrieve comments!', err })
         console.log(err)
+        res.status(500).json({ message: 'Comment retrieval error: Unable to retrieve comments!', err })
     }
 }
 
@@ -125,8 +125,8 @@ export const getPostsByUser = async (req, res) => {
 
         res.status(200).json({ message: 'Posts retrieved successfully!', posts })
     } catch (err) {
-        res.status(500).json({ message: 'Post retrieval error: Unable to retrieve posts!', err})
         console.log(err)
+        res.status(500).json({ message: 'Post retrieval error: Unable to retrieve posts!', err })
     }
 }
 
@@ -135,14 +135,14 @@ export const deletePost = async (req, res) => {
 
     try {
         if (!post)
-            return res.status(400).json({message: 'Post not found!'})
+            return res.status(400).json({ message: 'Post not found!' })
 
         await Comment.deleteMany({ parentPost: post._id })
         await Post.findByIdAndDelete(post._id)
 
         res.status(200).json({ message: 'Post deleted successfully!' })
     } catch (err) {
-        res.status(500).send('Post deletion error: Unable to delete the post!')
         console.log(err)
+        res.status(500).json({ message: 'Post deletion error: Unable to delete the post!', err })
     }
 }

@@ -34,8 +34,8 @@ export const registerUser = async (req, res) => {
 
         res.status(201).json({ message: "Registration successful!", accessToken, user })
     } catch (err) {
-        res.status(500).send('Registration error: Unable to complete user registration!')
         console.log(err)
+        res.status(500).send('Registration error: Unable to complete user registration!')
     }
 }
 
@@ -64,8 +64,8 @@ export const loginUser = async (req, res) => {
 
         res.status(200).json({ message: "Login successful!", accessToken })
     } catch (err) {
-        res.status(500).send('Login error: Unable to log in the user!')
         console.log(err)
+        res.status(500).send('Login error: Unable to log in the user!')
     }
 }
 
@@ -80,8 +80,8 @@ export const getUser = async (req, res) => {
 
         res.status(200).json({ message: "User found successfully!", user })
     } catch (err) {
-        res.status(500).send('Retrieval error: Unable to retrieve user information!')
         console.log(err)
+        res.status(500).send('Retrieval error: Unable to retrieve user information!')
     }
 }
 
@@ -93,7 +93,7 @@ export const deleteUser = async (req, res) => {
 
         res.status(200).json({ message: 'User deleted successfully!' })
     } catch (err) {
-        res.status(500).send('Deletion error: Unable to delete the user!')
         console.log(err)
+        res.status(500).send('Deletion error: Unable to delete the user!')
     }
 }

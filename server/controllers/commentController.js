@@ -26,8 +26,8 @@ export const replyComment = async (req, res) => {
 
         res.status(201).json({ message: 'Reply added successfully!', reply })
     } catch (err) {
-        res.status(500).json({ message: "Reply error: Unable to reply to the comment!", err })
         console.error(err)
+        res.status(500).json({ message: "Reply error: Unable to reply to the comment!", err })
     }
 }
 
@@ -54,8 +54,8 @@ export const likeComment = async (req, res) => {
         await comment.save()
 
     } catch (err) {
-        res.status(500).json({ message: "Like toggle error: Unable to update the like on the comment!", err })
         console.log(err)
+        res.status(500).json({ message: "Like toggle error: Unable to update the like on the comment!", err })
     }
 }
 
@@ -75,8 +75,8 @@ export const getReplies  = async (req, res) => {
 
         res.status(200).json({ message: 'Replies retrieved successfully!', replies })
     } catch (err) {
-        res.status(500).json({ message: "Reply retrieval error: Unable to retrieve replies!", err })
         console.log(err)
+        res.status(500).json({ message: "Reply retrieval error: Unable to retrieve replies!", err })
     }
 }
 
@@ -95,7 +95,7 @@ export const deleteComment = async (req, res) => {
 
         res.status(200).json({ message: 'Comment deleted successfully!' })
     } catch (err) {
-        res.status(500).json({ message: 'Comment deletion error: Unable to delete the comment!', err })
         console.log(err)
+        res.status(500).json({ message: 'Comment deletion error: Unable to delete the comment!', err })
     }
 }

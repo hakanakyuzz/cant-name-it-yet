@@ -30,7 +30,7 @@ export const refreshToken = async (req, res) => {
 
         res.status(200).json({ accessToken: newAccessToken })
     } catch (err) {
-        res.status(403).json({ message: 'Token refresh error: Unable to refresh the token!', err })
         console.log(err)
+        res.status(403).json({ message: 'Token refresh error: Unable to refresh the token!', err })
     }
 }

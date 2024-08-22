@@ -20,8 +20,12 @@ export const authMiddleware = async (req, res, next) => {
         req.user = decoded.user
         next()
     } catch (err) {
-        res.status(401).json({ message: 'Authentication error: Unable to authenticate the user!', err })
-        console.log(err)
+        if (err.name === 'TokenExpiredError')
+            return res.status(401).json({ message: 'Session expired. Please refresh your token or log in again!', err })
+         else if (err.name === 'JsonWebTokenError')
+             return res.status(401).json({ message: 'Invalid token. Authorization denied!', err });
+        else
+            return res.status(500).json({ message: 'Authentication error: Unable to authenticate the user!', err });
     }
 }
 
@@ -42,15 +46,19 @@ export const checkOwnership = (model, resourceField) =>
                 if (resource._id.toString() !== userId)
                     return res.status(403).json({ message: 'You are not authorized to access this user!' })
             }
-            else
+            else {
+                if (!resource.author)
+                    return res.status(403).json({ message: `This ${model.modelName} does not have an associated author!` })
+
                 if (resource.author.toString() !== userId)
                     return res.status(403).json({ message: `You are not authorized to access this ${model.modelName}!` })
+            }
 
             req.resource = resource
 
             next()
         } catch (err) {
-            res.status(500).json({ message: 'Ownership verification error: Something went wrong with the ownership check!', err })
             console.log(err)
+            res.status(500).json({ message: 'Ownership verification error: Something went wrong with the ownership check!', err })
         }
     }
