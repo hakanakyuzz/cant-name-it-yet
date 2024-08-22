@@ -1,4 +1,6 @@
 import express from 'express';
+import {Post} from "../models/Post.js";
+import {authMiddleware, checkOwnership} from "../middlewares/middlewares.js";
 import {
     commentPost,
     createPost, deletePost,
@@ -7,8 +9,6 @@ import {
     getPostsByUser,
     likePost
 } from "../controllers/postController.js";
-import {authMiddleware, checkOwnership} from "../middlewares/middlewares.js";
-import {Post} from "../models/Post.js";
 
 const router = express.Router()
 

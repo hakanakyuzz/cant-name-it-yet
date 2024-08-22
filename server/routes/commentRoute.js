@@ -1,7 +1,7 @@
 import express from 'express';
+import {Comment} from "../models/Comment.js";
 import {authMiddleware, checkOwnership} from "../middlewares/middlewares.js";
 import {deleteComment, getReplies, likeComment, replyComment} from "../controllers/commentController.js";
-import {Comment} from "../models/Comment.js";
 
 const router = express.Router()
 

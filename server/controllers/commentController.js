@@ -1,5 +1,5 @@
-import { Comment } from '../models/Comment.js';
 import {Post} from "../models/Post.js";
+import { Comment } from '../models/Comment.js';
 
 export const replyComment = async (req, res) => {
     const { commentId } = req.params
@@ -26,7 +26,7 @@ export const replyComment = async (req, res) => {
 
         res.status(201).json({ message: 'Reply added successfully!', reply })
     } catch (err) {
-        res.status(500).json({ message: "Something went wrong while replying to the comment!", error: err.message })
+        res.status(500).json({ message: "Reply error: Unable to reply to the comment!", err })
         console.error(err)
     }
 }
@@ -45,16 +45,16 @@ export const likeComment = async (req, res) => {
 
         if (likeIndex === -1) {
             comment.likes.push(userId)
-            res.status(200).json({ message: "Comment liked successfully", comment })
+            res.status(200).json({ message: "Comment liked successfully!", comment })
         } else {
             comment.likes.splice(likeIndex, 1)
-            res.status(200).json({ message: "Comment unliked successfully", comment })
+            res.status(200).json({ message: "Comment unliked successfully!", comment })
         }
 
         await comment.save()
 
     } catch (err) {
-        res.status(500).json({ message: "Something went wrong while toggling the like on the comment!", err})
+        res.status(500).json({ message: "Like toggle error: Unable to update the like on the comment!", err })
         console.log(err)
     }
 }
@@ -71,11 +71,11 @@ export const getReplies  = async (req, res) => {
             })
 
         if (!replies.length)
-            return res.status(200).json({ message: 'No replies found!', replies: [] })
+            return res.status(200).json({ message: 'No replies found for this comment!', replies: [] })
 
         res.status(200).json({ message: 'Replies retrieved successfully!', replies })
     } catch (err) {
-        res.status(500).json({ message: "Something went wrong while retrieving replies!", err})
+        res.status(500).json({ message: "Reply retrieval error: Unable to retrieve replies!", err })
         console.log(err)
     }
 }
@@ -95,7 +95,7 @@ export const deleteComment = async (req, res) => {
 
         res.status(200).json({ message: 'Comment deleted successfully!' })
     } catch (err) {
-        res.status(500).send('Something went wrong while deleting the comment!')
+        res.status(500).json({ message: 'Comment deletion error: Unable to delete the comment!', err })
         console.log(err)
     }
 }

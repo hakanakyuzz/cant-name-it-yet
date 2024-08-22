@@ -6,14 +6,17 @@ export const refreshToken = async (req, res) => {
     const refreshToken = req.cookies.refreshToken
 
     if (!refreshToken)
-        return res.status(401).json({ message: 'No token provided!' })
+        return res.status(401).json({ message: 'No token provided, authorization denied!' })
 
     try {
         const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN)
         const user = await User.findById(decoded.user.id)
 
-        if (!user || user.tokenVersion !== decoded.user.tokenVersion)
-            return res.status(403).json({ message: 'Invalid token!' })
+        if (!user)
+            return res.status(403).json({ message: 'User not found!' })
+
+        if (user.tokenVersion !== decoded.user.tokenVersion)
+            return res.status(403).json({ message: 'Token version mismatch!' })
 
         const newAccessToken = generateAccessToken(user)
         const newRefreshToken = generateRefreshToken(user)
@@ -27,7 +30,7 @@ export const refreshToken = async (req, res) => {
 
         res.status(200).json({ accessToken: newAccessToken })
     } catch (err) {
-        res.status(403).json({ message: 'Somthing went wrong while refreshing the token!', err })
+        res.status(403).json({ message: 'Token refresh error: Unable to refresh the token!', err })
         console.log(err)
     }
 }

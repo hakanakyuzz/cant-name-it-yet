@@ -32,9 +32,9 @@ export const registerUser = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         })
 
-        res.status(201).json({ message: "User registered successfully!", accessToken, user })
+        res.status(201).json({ message: "Registration successful!", accessToken, user })
     } catch (err) {
-        res.status(500).send('Something went wrong while registering user!')
+        res.status(500).send('Registration error: Unable to complete user registration!')
         console.log(err)
     }
 }
@@ -45,7 +45,7 @@ export const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ email })
         if (!user)
-            return res.status(400).json({ message: 'Invalid username!' })
+            return res.status(400).json({ message: 'Login failed: No user found with the provided email address!' })
 
         const isMatch = await bcrypt.compare(password, user.password)
 
@@ -62,9 +62,9 @@ export const loginUser = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         })
 
-        res.status(200).json({ message: "User logged in successfully!", accessToken })
+        res.status(200).json({ message: "Login successful!", accessToken })
     } catch (err) {
-        res.status(500).send('Something went wrong while logging user!')
+        res.status(500).send('Login error: Unable to log in the user!')
         console.log(err)
     }
 }
@@ -76,11 +76,11 @@ export const getUser = async (req, res) => {
         const user = await User.findById( userId )
 
         if (!user)
-            return res.status(400).json({ message: 'User could not be found!' })
+            return res.status(400).json({ message: 'User not found with the provided user ID!' })
 
         res.status(200).json({ message: "User found successfully!", user })
     } catch (err) {
-        res.status(500).send('Something went wrong while getting the user!')
+        res.status(500).send('Retrieval error: Unable to retrieve user information!')
         console.log(err)
     }
 }
@@ -93,7 +93,7 @@ export const deleteUser = async (req, res) => {
 
         res.status(200).json({ message: 'User deleted successfully!' })
     } catch (err) {
-        res.status(500).send('Something went wrong while deleting the user!')
+        res.status(500).send('Deletion error: Unable to delete the user!')
         console.log(err)
     }
 }
