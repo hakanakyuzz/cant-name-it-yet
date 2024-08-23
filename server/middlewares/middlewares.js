@@ -62,3 +62,15 @@ export const checkOwnership = (model, resourceField) =>
             res.status(500).json({ message: 'Ownership verification error: Something went wrong with the ownership check!', err })
         }
     }
+
+export const clearCookiesMiddleware = (req, res, next) => {
+    res.clearCookie('refreshToken', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'Strict',
+        path: '/',
+        domain: process.env.COOKIE_DOMAIN
+    })
+
+    next()
+}

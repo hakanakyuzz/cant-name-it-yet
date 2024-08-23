@@ -25,6 +25,8 @@ export const refreshToken = async (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'Strict',
+            path: '/',
+            domain: process.env.COOKIE_DOMAIN,
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         })
 
