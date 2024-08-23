@@ -35,7 +35,7 @@ export const registerUser = async (req, res) => {
         res.status(201).json({ message: "Registration successful!", accessToken, user })
     } catch (err) {
         console.log(err)
-        res.status(500).send('Registration error: Unable to complete user registration!')
+        res.status(500).json({ message: 'Registration error: Unable to complete user registration!', err })
     }
 }
 
@@ -65,7 +65,7 @@ export const loginUser = async (req, res) => {
         res.status(200).json({ message: "Login successful!", accessToken })
     } catch (err) {
         console.log(err)
-        res.status(500).send('Login error: Unable to log in the user!')
+        res.status(500).json({ message: 'Login error: Unable to log in the user!', err })
     }
 }
 
@@ -81,7 +81,7 @@ export const getUser = async (req, res) => {
         res.status(200).json({ message: "User found successfully!", user })
     } catch (err) {
         console.log(err)
-        res.status(500).send('Retrieval error: Unable to retrieve user information!')
+        res.status(500).json({ message: 'Retrieval error: Unable to retrieve user information!', err })
     }
 }
 
@@ -94,7 +94,7 @@ export const deleteUser = async (req, res) => {
         res.status(200).json({ message: 'User deleted successfully!' })
     } catch (err) {
         console.log(err)
-        res.status(500).send('Deletion error: Unable to delete the user!')
+        res.status(500).json({ message: 'Deletion error: Unable to delete the user!', err })
     }
 }
 
@@ -103,6 +103,60 @@ export const logoutUser = async (req, res) => {
         res.status(200).json({ message: "Logout successful!" })
     } catch (err) {
         console.log(err)
-        res.status(500).send('Logout error: Unable to log out the user!')
+        res.status(500).json({ message: 'Logout error: Unable to log out the user!', err })
+    }
+}
+
+export const updateProfile = async (req, res) => {
+    const user = req.resource
+    const { nickname, name, about, profilePicture } = req.body
+
+    try {
+        if (nickname) user.nickname = nickname
+        if (name) user.name = name
+        if (about) user.about = about
+        if (profilePicture) user.profilePicture = profilePicture
+
+        await user.save()
+
+        res.status(200).json({ message: 'User profile updated successfully!', user })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Update profile error: Unable to update the profile!', err })
+    }
+}
+
+export const updateEmail = async (req, res) => {
+    const user = req.resource
+    const { email } = req.body
+
+    try {
+        user.email = email
+        user.tokenVersion += 1
+
+        await user.save()
+
+        res.status(200).json({ message: 'User email updated successfully!', user })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Update email error: Unable to update the email!', err })
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    const user = req.resource
+    const { password } = req.body
+
+    try {
+        const salt = await bcrypt.genSalt(10)
+        user.password = await bcrypt.hash(password, salt)
+        user.tokenVersion += 1
+
+        await user.save()
+
+        res.status(200).json({ message: 'User password updated successfully!', user })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Update password error: Unable to update the password!', err })
     }
 }
