@@ -99,3 +99,22 @@ export const deleteComment = async (req, res) => {
         res.status(500).json({ message: 'Comment deletion error: Unable to delete the comment!', err })
     }
 }
+
+export const updateComment = async (req, res) => {
+    const comment = req.resource
+    const { content } = req.body
+
+    try {
+        if (!comment)
+            return res.status(400).json({ message: 'Comment not found!' })
+
+        comment.content = content
+
+        await comment.save()
+
+        res.status(200).json({ message: 'Comment updated successfully!', comment })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Comment update error: Unable to update the comment!', err })
+    }
+}
