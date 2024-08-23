@@ -97,3 +97,12 @@ export const deleteUser = async (req, res) => {
         res.status(500).send('Deletion error: Unable to delete the user!')
     }
 }
+
+export const logoutUser = async (req, res) => {
+    try {
+        res.status(200).json({ message: "Logout successful!" })
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Logout error: Unable to log out the user!')
+    }
+}
