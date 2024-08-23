@@ -6,11 +6,20 @@ import {userRoute} from "./routes/userRoute.js";
 import {postRoute} from "./routes/postRoute.js";
 import {commentRoute} from "./routes/commentRoute.js";
 import {tokenRoute} from "./routes/tokenRoute.js";
+import rateLimit from "express-rate-limit";
 
 dotenv.config()
 
 const app = express()
 
+const globalLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 100,
+    message: 'Too many requests from this IP, please try again after 15 minutes!',
+    headers: true
+})
+
+app.use(globalLimiter)
 app.use(cookieParser())
 app.use(express.json())
 

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import {User} from "../models/User.js";
+import rateLimit from "express-rate-limit";
 
 export const authMiddleware = async (req, res, next) => {
     const token = req.header('Authorization')
@@ -74,3 +75,10 @@ export const clearCookiesMiddleware = (req, res, next) => {
 
     next()
 }
+
+export const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10,
+    message: 'Too many attempts from this IP, please try again after 15 minutes!',
+    headers: true
+})
