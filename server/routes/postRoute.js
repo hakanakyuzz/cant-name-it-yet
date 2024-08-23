@@ -9,6 +9,7 @@ import {
     getPost,
     getPostsByUser,
     likePost,
+    updatePost
 } from "../controllers/postController.js";
 
 const router = express.Router()
@@ -20,5 +21,6 @@ router.get('/:postId', getPost)
 router.get('/:postId/comments', getComments)
 router.get('/:userId/posts', getPostsByUser)
 router.delete('/:postId', authMiddleware, checkOwnership(Post, 'postId'), deletePost)
+router.patch('/:postId', authMiddleware, checkOwnership(Post, 'postId'), updatePost)
 
 export {router as postRoute}

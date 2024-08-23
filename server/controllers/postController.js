@@ -146,3 +146,22 @@ export const deletePost = async (req, res) => {
         res.status(500).json({ message: 'Post deletion error: Unable to delete the post!', err })
     }
 }
+
+export const updatePost = async (req, res) => {
+    const post = req.resource
+    const { content } = req.body
+
+    try {
+        if (!post)
+            return res.status(400).json({ message: 'Post not found!' })
+
+        post.content = content
+
+        await post.save()
+
+        res.status(200).json({ message: 'Post updated successfully!', post })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Post update error: Unable to update the post!', err })
+    }
+}
