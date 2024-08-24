@@ -12,17 +12,23 @@ import {
     updatePassword,
     updateProfile
 } from "../controllers/userController.js";
+import {
+    validateUserEmail,
+    validateUserLogin, validateUserNickname, validateUserPassword,
+    validateUserProfile,
+    validateUserRegistration
+} from "../middlewares/validationMiddlewares.js";
 
 const router = express.Router()
 
-router.post('/register', authLimiter, registerUser)
-router.post('/login', authLimiter, loginUser)
+router.post('/register', authLimiter, validateUserRegistration, registerUser)
+router.post('/login', authLimiter, validateUserLogin, loginUser)
 router.post('/logout', authLimiter, authMiddleware, clearCookiesMiddleware, logoutUser)
 router.get('/:userId', getUser)
 router.delete('/:userId', authMiddleware, checkOwnership(User, 'userId'), deleteUser)
-router.patch('/:userId', authMiddleware, checkOwnership(User, 'userId'), updateProfile)
-router.put('/updateNickname/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updateNickname)
-router.put('/updateEmail/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updateEmail)
-router.put('/updatePassword/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updatePassword)
+router.patch('/:userId', authMiddleware, checkOwnership(User, 'userId'), validateUserProfile, updateProfile)
+router.put('/updateNickname/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserNickname, updateNickname)
+router.put('/updateEmail/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserEmail, updateEmail)
+router.put('/updatePassword/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserPassword, updatePassword)
 
 export {router as userRoute}
