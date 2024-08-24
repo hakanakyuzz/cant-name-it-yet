@@ -1,4 +1,5 @@
 import {User} from '../models/User.js';
+import {Notification} from "../models/Notification.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
@@ -213,6 +214,14 @@ export const followUser = async (req, res) => {
         } else {
             user.following.push(userToFollowId)
             userToFollow.followers.push(userId)
+
+            const notification = new Notification({
+                user: userId,
+                targetUser: userToFollowId,
+                type: 'follow'
+            })
+
+            await notification.save()
         }
         await user.save()
         await userToFollow.save()

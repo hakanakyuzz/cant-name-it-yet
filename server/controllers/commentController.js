@@ -1,5 +1,6 @@
 import {Post} from "../models/Post.js";
 import { Comment } from '../models/Comment.js';
+import {Notification} from '../models/Notification.js';
 
 export const replyComment = async (req, res) => {
     const { commentId } = req.params
@@ -24,6 +25,17 @@ export const replyComment = async (req, res) => {
 
         await Comment.findByIdAndUpdate(rootCommentId, { $push: { replies: reply._id } })
 
+        if (comment.author.toString() !== userId) {
+            const notification = new Notification({
+                user: userId,
+                targetUser: comment.author,
+                type: 'reply',
+                comment: commentId
+            })
+
+            await notification.save()
+        }
+
         res.status(201).json({ message: 'Reply added successfully!', reply })
     } catch (err) {
         console.error(err)
@@ -45,14 +57,22 @@ export const likeComment = async (req, res) => {
 
         if (likeIndex === -1) {
             comment.likes.push(userId)
-            res.status(200).json({ message: "Comment liked successfully!", comment })
-        } else {
+
+            if (comment.author.toString() !== userId) {
+                const notification = new Notification({
+                    user: userId,
+                    targetUser: comment.author,
+                    type: 'like',
+                    comment: commentId
+                })
+
+                await notification.save()
+            }
+        } else
             comment.likes.splice(likeIndex, 1)
-            res.status(200).json({ message: "Comment unliked successfully!", comment })
-        }
 
         await comment.save()
-
+        res.status(200).json({ message: `Comment ${likeIndex === -1 ? 'liked' : 'unliked'} successfully!`, comment })
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: "Like toggle error: Unable to update the like on the comment!", err })
