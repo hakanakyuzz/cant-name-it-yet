@@ -3,6 +3,7 @@ import {User} from "../models/User.js"
 import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/authMiddlewares.js";
 import {
     deleteUser,
+    followUser,
     getUser,
     loginUser,
     logoutUser,
@@ -32,5 +33,7 @@ router.patch('/:userId', authMiddleware, checkOwnership(User, 'userId'), validat
 router.put('/updateNickname/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserNickname, updateNickname)
 router.put('/updateEmail/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserEmail, updateEmail)
 router.put('/updatePassword/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), validateUserPassword, updatePassword)
+router.post('/follow/:userId', authMiddleware, followUser)
+
 
 export {router as userRoute}

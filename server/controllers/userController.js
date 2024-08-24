@@ -1,5 +1,6 @@
 import {User} from '../models/User.js';
 import bcrypt from "bcrypt";
+import crypto from "crypto";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
 
 export const registerUser = async (req, res) => {
@@ -187,5 +188,36 @@ export const updatePassword = async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: 'Update password error: Unable to update the password!', err })
+    }
+}
+
+export const followUser = async (req, res) => {
+    const userId = req.user.id
+    const userToFollowId = req.params.userId
+
+    try {
+        const user = await User.findById(userId)
+        const userToFollow = await User.findById(userToFollowId)
+
+        if (!userToFollow)
+            return res.status(404).json({ message: "User not found!" })
+
+        const isFollowing = user.following.includes(userToFollowId)
+
+        if (isFollowing) {
+            console.log(user.following)
+            user.following = user.following.filter(id => id.toString() !== userToFollowId)
+            userToFollow.followers = userToFollow.followers.filter(id => id.toString() !== userId)
+        } else {
+            user.following.push(userToFollowId)
+            userToFollow.followers.push(userId)
+        }
+        await user.save()
+        await userToFollow.save()
+
+        res.status(200).json({ message: `User ${isFollowing ? 'unfollowed' : 'followed'} successfully!` })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Follow user error: Unable to follow the user!', err })
     }
 }
