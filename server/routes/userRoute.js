@@ -14,7 +14,9 @@ import {
 } from "../controllers/userController.js";
 import {
     validateUserEmail,
-    validateUserLogin, validateUserNickname, validateUserPassword,
+    validateUserLogin,
+    validateUserNickname,
+    validateUserPassword,
     validateUserProfile,
     validateUserRegistration
 } from "../middlewares/validationMiddlewares.js";
