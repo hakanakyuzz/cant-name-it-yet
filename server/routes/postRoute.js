@@ -1,6 +1,6 @@
 import express from 'express';
 import {Post} from "../models/Post.js";
-import {authMiddleware, checkOwnership} from "../middlewares/middlewares.js";
+import {authMiddleware, checkOwnership} from "../middlewares/authMiddlewares.js";
 import {
     commentPost,
     createPost,
