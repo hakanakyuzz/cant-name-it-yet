@@ -195,6 +195,8 @@ export const followUser = async (req, res) => {
     const userId = req.user.id
     const userToFollowId = req.params.userId
 
+    if (userId === userToFollowId) return res.status(400).json({ message: "You cannot follow yourself!" })
+
     try {
         const user = await User.findById(userId)
         const userToFollow = await User.findById(userToFollowId)
@@ -219,5 +221,24 @@ export const followUser = async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: 'Follow user error: Unable to follow the user!', err })
+    }
+}
+
+export const searchUser = async (req, res) => {
+    const { query } = req.query
+    if (!query) return res.status(400).json({ message: 'Search query is required!' })
+
+    try {
+        const users = await User.find({
+            nickname: { $regex: query, $options: 'i' }
+        }).select('nickname name profilePicture')
+
+        if (users.length === 0)
+            return res.status(404).json({ message: 'No user found!' })
+
+        res.status(200).json({ message: 'Some users found!', users })
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error searching for users!', err })
     }
 }
