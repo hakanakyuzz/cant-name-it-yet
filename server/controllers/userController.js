@@ -109,10 +109,9 @@ export const logoutUser = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
     const user = req.resource
-    const { nickname, name, about, profilePicture } = req.body
+    const { name, about, profilePicture } = req.body
 
     try {
-        if (nickname) user.nickname = nickname
         if (name) user.name = name
         if (about) user.about = about
         if (profilePicture) user.profilePicture = profilePicture
@@ -126,11 +125,36 @@ export const updateProfile = async (req, res) => {
     }
 }
 
+export const updateNickname = async (req, res) => {
+    const user = req.resource
+    const { nickname } = req.body
+
+    try {
+        const userExist = await User.findOne({ nickname })
+        if (userExist)
+            return res.status(400).json({ message: 'A user already exists with provided nickname!' })
+
+        user.nickname = nickname
+        user.tokenVersion += 1
+
+        await user.save()
+
+        res.status(200).json({ message: 'User nickname updated successfully!', user })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Update nickname error: Unable to update the nickname!', err })
+    }
+}
+
 export const updateEmail = async (req, res) => {
     const user = req.resource
     const { email } = req.body
 
     try {
+        const userExist = await User.findOne({ email })
+        if (userExist)
+            return res.status(400).json({ message: 'A user already exists with provided email!' })
+
         user.email = email
         user.tokenVersion += 1
 

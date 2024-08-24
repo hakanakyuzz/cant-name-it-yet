@@ -1,12 +1,15 @@
 import express from 'express';
 import {User} from "../models/User.js"
-import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/middlewares.js";
+import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/authMiddlewares.js";
 import {
     deleteUser,
     getUser,
     loginUser,
     logoutUser,
-    registerUser, updateEmail, updatePassword,
+    registerUser,
+    updateEmail,
+    updateNickname,
+    updatePassword,
     updateProfile
 } from "../controllers/userController.js";
 
@@ -18,6 +21,7 @@ router.post('/logout', authLimiter, authMiddleware, clearCookiesMiddleware, logo
 router.get('/:userId', getUser)
 router.delete('/:userId', authMiddleware, checkOwnership(User, 'userId'), deleteUser)
 router.patch('/:userId', authMiddleware, checkOwnership(User, 'userId'), updateProfile)
+router.put('/updateNickname/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updateNickname)
 router.put('/updateEmail/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updateEmail)
 router.put('/updatePassword/:userId', authLimiter, authMiddleware, checkOwnership(User, 'userId'), updatePassword)
 
