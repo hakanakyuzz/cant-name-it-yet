@@ -46,11 +46,7 @@ const userSchema = new mongoose.Schema({
     },
     verificationTokenExpires: {
         type: Date
-    },
-    date: {
-        type: Date,
-        default: Date.now
     }
-})
+}, { timestamps: true })
 
 export const User = mongoose.model('User', userSchema)

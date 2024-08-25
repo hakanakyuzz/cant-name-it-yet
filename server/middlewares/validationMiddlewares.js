@@ -26,9 +26,9 @@ export const validateUserLogin = [
 ]
 
 export const validateUserProfile = [
-    body('name').isString().withMessage('Name must be a string!'),
-    body('about').isString().withMessage('About must be a string!'),
-    body('profilePicture').isURL().withMessage('Profile picture must be a valid URL!'),
+    body('name').optional().isString().withMessage('Name must be a string!'),
+    body('about').optional().isString().withMessage('About must be a string!'),
+    body('profilePicture').optional().isURL().withMessage('Profile picture must be a valid URL!'),
     (req, res, next) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
