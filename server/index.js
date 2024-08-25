@@ -9,6 +9,8 @@ import {postRoute} from "./routes/postRoute.js";
 import {commentRoute} from "./routes/commentRoute.js";
 import {tokenRoute} from "./routes/tokenRoute.js";
 import {notificationRoute} from "./routes/notificationRoute.js";
+import {chatRoute} from "./routes/chatRoute.js";
+import {messageRoute} from "./routes/messageRoute.js";
 
 dotenv.config()
 
@@ -39,6 +41,8 @@ app.use('/api/post', postRoute)
 app.use('/api/comment', commentRoute)
 app.use('/api/token', tokenRoute)
 app.use('/api/notification', notificationRoute)
+app.use('/api/chat', chatRoute)
+app.use('/api/message', messageRoute)
 
 const PORT = process.env.PORT || 3000
 
