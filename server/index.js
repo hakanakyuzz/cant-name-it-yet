@@ -2,12 +2,13 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
+import rateLimit from "express-rate-limit";
+import cors from "cors";
 import {userRoute} from "./routes/userRoute.js";
 import {postRoute} from "./routes/postRoute.js";
 import {commentRoute} from "./routes/commentRoute.js";
 import {tokenRoute} from "./routes/tokenRoute.js";
-import rateLimit from "express-rate-limit";
-import cors from "cors";
+import {notificationRoute} from "./routes/notificationRoute.js";
 
 dotenv.config()
 
@@ -37,6 +38,7 @@ app.use('/api/user', userRoute)
 app.use('/api/post', postRoute)
 app.use('/api/comment', commentRoute)
 app.use('/api/token', tokenRoute)
+app.use('/api/notification', notificationRoute)
 
 const PORT = process.env.PORT || 3000
 
