@@ -2,7 +2,7 @@ import { Chat } from '../models/Chat.js';
 import { Message } from '../models/Message.js';
 
 export const createChat = async (req, res) => {
-    const {participantId} = req.params
+    const { participantId } = req.params
     const userId = req.user.id
 
     try {

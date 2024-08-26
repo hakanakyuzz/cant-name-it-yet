@@ -3,16 +3,16 @@ import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
-import {userRoute} from "./routes/userRoute.js";
-import {postRoute} from "./routes/postRoute.js";
-import {commentRoute} from "./routes/commentRoute.js";
-import {tokenRoute} from "./routes/tokenRoute.js";
-import {notificationRoute} from "./routes/notificationRoute.js";
-import {chatRoute} from "./routes/chatRoute.js";
-import {messageRoute} from "./routes/messageRoute.js";
+import { userRoute } from "./routes/userRoute.js";
+import { postRoute } from "./routes/postRoute.js";
+import { commentRoute } from "./routes/commentRoute.js";
+import { tokenRoute } from "./routes/tokenRoute.js";
+import { notificationRoute } from "./routes/notificationRoute.js";
+import { chatRoute } from "./routes/chatRoute.js";
+import { messageRoute } from "./routes/messageRoute.js";
 import { createServer } from 'http';
-import {configureSocket} from "./services/socket.js";
-import {connectDatabase} from "./services/database.js";
+import { configureSocket } from "./services/socket.js";
+import { connectDatabase } from "./services/database.js";
 
 dotenv.config()
 

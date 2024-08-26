@@ -1,4 +1,4 @@
-import {body, validationResult} from 'express-validator';
+import { body, validationResult } from 'express-validator';
 
 export const validateUserRegistration = [
     body('nickname').isString().withMessage('Nickname is required!'),

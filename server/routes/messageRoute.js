@@ -1,7 +1,7 @@
 import express from 'express';
-import { sendMessage, getMessages, deleteMessage } from '../controllers/messageController.js';
 import { authMiddleware } from '../middlewares/auth.js';
-import {notifyUserMessage} from "../middlewares/notification.js";
+import { notifyUserMessage } from "../middlewares/notification.js";
+import { sendMessage, getMessages, deleteMessage } from '../controllers/messageController.js';
 
 const router = express.Router()
 

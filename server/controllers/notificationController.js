@@ -1,4 +1,4 @@
-import {Notification} from '../models/Notification.js';
+import { Notification } from '../models/Notification.js';
 
 export const getNotifications = async (req, res) => {
     const userId = req.user.id
@@ -15,8 +15,8 @@ export const getNotifications = async (req, res) => {
 }
 
 export const markAsRead = async (req, res) => {
-    const { notificationId } = req.params
     const userId = req.user.id
+    const { notificationId } = req.params
 
     try {
         const notification = await Notification.findById(notificationId)
