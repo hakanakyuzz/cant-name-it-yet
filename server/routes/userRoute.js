@@ -1,7 +1,7 @@
 import express from 'express';
 import {User} from "../models/User.js"
-import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/authMiddlewares.js";
-import {notifyUserFollow} from "../middlewares/notificationMiddlewares.js";
+import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/auth.js";
+import {notifyUserFollow} from "../middlewares/notification.js";
 import {
     validateUserEmail,
     validateUserLogin,
@@ -9,7 +9,7 @@ import {
     validateUserPassword,
     validateUserProfile,
     validateUserRegistration
-} from "../middlewares/validationMiddlewares.js";
+} from "../middlewares/validation.js";
 import {
     deleteUser,
     followUser,

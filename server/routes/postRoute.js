@@ -1,8 +1,8 @@
 import express from 'express';
 import {Post} from "../models/Post.js";
-import {authMiddleware, checkOwnership} from "../middlewares/authMiddlewares.js";
-import {validateComment, validatePost} from "../middlewares/validationMiddlewares.js";
-import {notifyPostComment, notifyPostLike} from "../middlewares/notificationMiddlewares.js";
+import {authMiddleware, checkOwnership} from "../middlewares/auth.js";
+import {validateComment, validatePost} from "../middlewares/validation.js";
+import {notifyPostComment, notifyPostLike} from "../middlewares/notification.js";
 import {
     commentPost,
     createPost,

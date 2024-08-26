@@ -1,9 +1,9 @@
 import express from 'express';
 import {Comment} from "../models/Comment.js";
-import {authMiddleware, checkOwnership} from "../middlewares/authMiddlewares.js";
+import {authMiddleware, checkOwnership} from "../middlewares/auth.js";
 import {deleteComment, getReplies, likeComment, replyComment, updateComment} from "../controllers/commentController.js";
-import {validateComment, validateReply} from "../middlewares/validationMiddlewares.js";
-import {notifyCommentLike, notifyCommentReply} from "../middlewares/notificationMiddlewares.js";
+import {validateComment, validateReply} from "../middlewares/validation.js";
+import {notifyCommentLike, notifyCommentReply} from "../middlewares/notification.js";
 
 const router = express.Router()
 

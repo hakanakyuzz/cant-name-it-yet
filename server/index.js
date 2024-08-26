@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
@@ -11,6 +10,9 @@ import {tokenRoute} from "./routes/tokenRoute.js";
 import {notificationRoute} from "./routes/notificationRoute.js";
 import {chatRoute} from "./routes/chatRoute.js";
 import {messageRoute} from "./routes/messageRoute.js";
+import { createServer } from 'http';
+import {configureSocket} from "./services/socket.js";
+import {connectDatabase} from "./services/database.js";
 
 dotenv.config()
 
@@ -32,9 +34,7 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 
-mongoose.connect(process.env.DATABASE_URL)
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log('Could not connect to MongoDB!', err))
+connectDatabase()
 
 app.use('/api/user', userRoute)
 app.use('/api/post', postRoute)
@@ -44,6 +44,8 @@ app.use('/api/notification', notificationRoute)
 app.use('/api/chat', chatRoute)
 app.use('/api/message', messageRoute)
 
-const PORT = process.env.PORT || 3000
+const server = createServer(app)
+export const io = configureSocket(server)
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`))
+const PORT = process.env.PORT || 3000
+server.listen(PORT, () => console.log(`Listening on ${PORT}`))
