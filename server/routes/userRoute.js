@@ -1,6 +1,15 @@
 import express from 'express';
 import {User} from "../models/User.js"
 import {authLimiter, authMiddleware, checkOwnership, clearCookiesMiddleware} from "../middlewares/authMiddlewares.js";
+import {notifyUserFollow} from "../middlewares/notificationMiddlewares.js";
+import {
+    validateUserEmail,
+    validateUserLogin,
+    validateUserNickname,
+    validateUserPassword,
+    validateUserProfile,
+    validateUserRegistration
+} from "../middlewares/validationMiddlewares.js";
 import {
     deleteUser,
     followUser,
@@ -14,21 +23,13 @@ import {
     updatePassword,
     updateProfile
 } from "../controllers/userController.js";
-import {
-    validateUserEmail,
-    validateUserLogin,
-    validateUserNickname,
-    validateUserPassword,
-    validateUserProfile,
-    validateUserRegistration
-} from "../middlewares/validationMiddlewares.js";
 
 const router = express.Router()
 
 router.post('/register', authLimiter, validateUserRegistration, registerUser)
 router.post('/login', authLimiter, validateUserLogin, loginUser)
 router.post('/logout', authLimiter, authMiddleware, clearCookiesMiddleware, logoutUser)
-router.post('/follow/:userId', authMiddleware, followUser)
+router.post('/follow/:userId', authMiddleware, followUser, notifyUserFollow)
 router.get('/search', authMiddleware, searchUser)
 router.get('/:userId', getUser)
 router.delete('/:userId', authMiddleware, checkOwnership(User, 'userId'), deleteUser)

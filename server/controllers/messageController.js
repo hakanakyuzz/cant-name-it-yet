@@ -1,7 +1,7 @@
 import { Message } from '../models/Message.js';
 import { Chat } from '../models/Chat.js';
 
-export const sendMessage = async (req, res) => {
+export const sendMessage = async (req, res, next) => {
     const { content } = req.body
     const { chatId } = req.params
     const userId = req.user.id
@@ -25,7 +25,11 @@ export const sendMessage = async (req, res) => {
         chat.lastMessage = msg._id
         await chat.save()
 
+        req.chat = chat
+        req.msgId = msg._id
         res.status(201).json({ message: 'Message sent successfully!', msg })
+
+        next()
     } catch (err) {
         res.status(500).json({ message: 'Error sending message!', err })
     }

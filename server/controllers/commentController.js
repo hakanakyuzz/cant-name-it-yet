@@ -1,8 +1,7 @@
 import {Post} from "../models/Post.js";
 import { Comment } from '../models/Comment.js';
-import {Notification} from '../models/Notification.js';
 
-export const replyComment = async (req, res) => {
+export const replyComment = async (req, res, next) => {
     const { commentId } = req.params
     const { content } = req.body
     const userId = req.user.id
@@ -25,25 +24,17 @@ export const replyComment = async (req, res) => {
 
         await Comment.findByIdAndUpdate(rootCommentId, { $push: { replies: reply._id } })
 
-        if (comment.author.toString() !== userId) {
-            const notification = new Notification({
-                user: userId,
-                targetUser: comment.author,
-                type: 'reply',
-                comment: commentId
-            })
-
-            await notification.save()
-        }
-
+        req.comment = comment
         res.status(201).json({ message: 'Reply added successfully!', reply })
+
+        next()
     } catch (err) {
         console.error(err)
         res.status(500).json({ message: "Reply error: Unable to reply to the comment!", err })
     }
 }
 
-export const likeComment = async (req, res) => {
+export const likeComment = async (req, res ,next) => {
     const { commentId } = req.params
     const userId = req.user.id
 
@@ -55,24 +46,13 @@ export const likeComment = async (req, res) => {
 
         const likeIndex = comment.likes.indexOf(userId)
 
-        if (likeIndex === -1) {
-            comment.likes.push(userId)
-
-            if (comment.author.toString() !== userId) {
-                const notification = new Notification({
-                    user: userId,
-                    targetUser: comment.author,
-                    type: 'like',
-                    comment: commentId
-                })
-
-                await notification.save()
-            }
-        } else
-            comment.likes.splice(likeIndex, 1)
-
+        likeIndex === -1 ? comment.likes.push(userId) : comment.likes.splice(likeIndex, 1)
         await comment.save()
+
+        req.comment = comment
         res.status(200).json({ message: `Comment ${likeIndex === -1 ? 'liked' : 'unliked'} successfully!`, comment })
+
+        next()
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: "Like toggle error: Unable to update the like on the comment!", err })

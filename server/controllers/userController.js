@@ -1,5 +1,4 @@
 import {User} from '../models/User.js';
-import {Notification} from "../models/Notification.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import {generateAccessToken, generateRefreshToken} from "../utils/tokenUtils.js";
@@ -192,7 +191,7 @@ export const updatePassword = async (req, res) => {
     }
 }
 
-export const followUser = async (req, res) => {
+export const followUser = async (req, res, next) => {
     const userId = req.user.id
     const userToFollowId = req.params.userId
 
@@ -214,19 +213,15 @@ export const followUser = async (req, res) => {
         } else {
             user.following.push(userToFollowId)
             userToFollow.followers.push(userId)
-
-            const notification = new Notification({
-                user: userId,
-                targetUser: userToFollowId,
-                type: 'follow'
-            })
-
-            await notification.save()
         }
+
         await user.save()
         await userToFollow.save()
 
+        req.isFollowing = isFollowing
         res.status(200).json({ message: `User ${isFollowing ? 'unfollowed' : 'followed'} successfully!` })
+
+        next()
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: 'Follow user error: Unable to follow the user!', err })
