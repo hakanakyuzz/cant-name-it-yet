@@ -25,16 +25,9 @@ export const sendMessage = async (req, res, next) => {
         chat.lastMessage = msg._id
         await chat.save()
 
-        const io = req.app.get('io')
-        io.to(chatId).emit('receive_message', {
-            chatId,
-            sender: userId,
-            content,
-            createdAt: msg.createdAt
-        })
-
         req.chat = chat
         req.msgId = msg._id
+
         res.status(201).json({ message: 'Message sent successfully!', msg })
 
         next()

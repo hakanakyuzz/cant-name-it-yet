@@ -1,4 +1,5 @@
 import { Server as SocketIOServer } from 'socket.io';
+import {socketController} from "./socketController.js";
 
 export function configureSocket(server) {
     const io = new SocketIOServer(server, {
@@ -8,13 +9,7 @@ export function configureSocket(server) {
             credentials: true
         }
     })
-
-    io.on('connection', (socket) => {
-        console.log('A user connected:', socket.id)
-
-        socket.on('disconnect', () => console.log('User disconnected:', socket.id))
-
-    })
+    io.on('connection', socket => socketController(socket))
 
     return io
 }
