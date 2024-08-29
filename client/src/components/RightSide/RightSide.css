@@ -1,0 +1,26 @@
+.right-side-container{
+    width: 350px;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+.profile-picture-container{
+    width: 70px;
+    height: 70px;
+    background: #737373;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.info-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+.info-container>:nth-child(2){
+    color: var(--secondary);
+}

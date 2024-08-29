@@ -1,7 +1,11 @@
+:root {
+    --secondary: rgba(159, 159, 159, 0.78);
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 a{
     text-decoration: none;
@@ -9,4 +13,7 @@ a{
 svg{
     font-size: 30px;
     background: transparent;
+}
+.second-color{
+    color: #737373;
 }
