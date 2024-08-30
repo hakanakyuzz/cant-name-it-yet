@@ -2,7 +2,9 @@ import './Messages.css'
 
 const Messages = () => {
     return (
-        <div>Messages</div>
+        <div className='message-container'>
+            <span>hakanakyuz</span>
+        </div>
     )
 }
 

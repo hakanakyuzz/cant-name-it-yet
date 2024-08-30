@@ -1,5 +1,7 @@
 import './Post.css'
 import UserInfo from "../UserInfo/UserInfo.jsx";
+import {CiHeart} from "react-icons/ci";
+import {LiaShareSolid} from "react-icons/lia";
 
 
 const Post = () => {
@@ -14,10 +16,10 @@ const Post = () => {
                     consisting of a subject and predicate
                 </div>
                 <div className='like-share-container'>
-                    <div>like</div>
-                    <div>share</div>
+                    <CiHeart />
+                    <LiaShareSolid />
                 </div>
-                <div>
+                <div className='post-owner'>
                     hakanakyuz In linguistics and grammar, a sentence is a linguistic expression
                 </div>
                 <div className='comment-container'>
@@ -41,10 +43,10 @@ const Post = () => {
                     consisting of a subject and predicate
                 </div>
                 <div className='like-share-container'>
-                    <div>like</div>
-                    <div>share</div>
+                    <CiHeart />
+                    <LiaShareSolid />
                 </div>
-                <div>
+                <div className='post-owner'>
                     hakanakyuz In linguistics and grammar, a sentence is a linguistic expression
                 </div>
                 <div className='comment-container'>

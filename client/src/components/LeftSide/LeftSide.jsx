@@ -4,15 +4,17 @@ import {IoIosNotificationsOutline} from "react-icons/io";
 import {IoCreateOutline, IoSearchOutline} from "react-icons/io5";
 import {BiMessageSquareDetail} from "react-icons/bi";
 import {Link} from "react-router-dom";
-import {RxHamburgerMenu} from "react-icons/rx";
+import {RxHamburgerMenu, RxVercelLogo} from "react-icons/rx";
 
 const LeftSide = () => {
     return (
         <div className='left-side-container'>
             <div className={'left-inner-side-container'}>
                 <Link to={'/'} className='nav-logo-container'>
-                    Can't name it yet!
+                    <span>Can't name it yet!</span>
+                    <RxVercelLogo />
                 </Link>
+
                 <Link to={'/'} className='nav-container'>
                     <GoHome/>
                     <span>Home</span>

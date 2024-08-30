@@ -5,7 +5,9 @@
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100%;
-    height: 100%;
+    height: 600px;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
 }
 .like-share-container{
     width: 100%;
@@ -16,4 +18,19 @@
 .comment-container{
     margin-top: 20px;
     margin-bottom: 100px;
+}
+@media(max-width: 500px) {
+    .like-share-container, .post-owner, .comment-container{
+        padding: 0 30px;
+    }
+}
+@media(max-width: 450px) {
+    .post-container{
+        width: 360px;
+    }
+}
+@media(max-width: 400px) {
+    .post-container{
+        width: 320px;
+    }
 }
