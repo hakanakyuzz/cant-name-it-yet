@@ -15,6 +15,13 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
+.like-share-container>*:hover{
+    fill: var(--nickaname);
+    cursor: pointer;
+}
+.post-owner>span:hover{
+    cursor: pointer;
+}
 .comment-container{
     margin-top: 20px;
     margin-bottom: 100px;

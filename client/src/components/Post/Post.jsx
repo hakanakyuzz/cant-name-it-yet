@@ -20,7 +20,7 @@ const Post = () => {
                     <LiaShareSolid />
                 </div>
                 <div className='post-owner'>
-                    hakanakyuz In linguistics and grammar, a sentence is a linguistic expression
+                    <span>hakanakyuz</span> In linguistics and grammar, a sentence is a linguistic expression
                 </div>
                 <div className='comment-container'>
                     view all 70 comments
