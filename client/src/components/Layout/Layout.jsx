@@ -8,7 +8,7 @@ const Layout = () => {
     const location = useLocation()
     const currentPath = location.pathname
 
-    const hideFooterAndRightSide = ['/messages', '/profile']
+    const hideFooterAndRightSide = ['/messages', '/profile', '/messages/userId']
     const showFooterAndRightSide = !hideFooterAndRightSide.includes(currentPath)
 
     return (

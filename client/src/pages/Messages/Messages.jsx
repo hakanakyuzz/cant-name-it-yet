@@ -1,10 +1,56 @@
 import './Messages.css'
+import {RiSendPlaneLine} from "react-icons/ri";
+import {Outlet} from "react-router-dom";
 
 const Messages = () => {
     return (
-        <div className='message-container'>
-            <span>hakanakyuz</span>
-        </div>
+        <section className="messages-section">
+            <div className='messages-container'>
+                <div className="user-container">
+                    <span>hakanakyuz</span>
+                    <RiSendPlaneLine/>
+                </div>
+                <div className="user-message-container">
+                    <div className="user-message">
+                        <div className='user-info-container'>
+                            <span>PP</span>
+                            <div className='info-container'>
+                                <span>hakanakyuz</span>
+                                <span>hello world! ....</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="user-message">
+                        <div className='user-info-container'>
+                            <span>PP</span>
+                            <div className='info-container'>
+                                <span>hakanakyuz</span>
+                                <span>hello world! ....</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="user-message">
+                        <div className='user-info-container'>
+                            <span>PP</span>
+                            <div className='info-container'>
+                                <span>hakanakyuz</span>
+                                <span>hello world! ....</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="user-message">
+                        <div className='user-info-container'>
+                            <span>PP</span>
+                            <div className='info-container'>
+                                <span>hakanakyuz</span>
+                                <span>hello world! ....</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Outlet />
+        </section>
     )
 }
 

@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 
 const UserInfo = () => {
     return (<div className='user-info-container'>
-        <Link to={'/profile'} className='profile-picture-container'>
+        <Link to={`/profile`} className='profile-picture-container'>
             PP
         </Link>
         <div className='info-container'>
-            <Link to={'/profile'}>
+            <Link to={`/profile`} className={'profile-nickname'}>
                 hakanakyuz
             </Link>
             <span>Hakan Akyüz</span>

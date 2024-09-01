@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./components/Layout/Layout.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Messages from "./pages/Messages/Messages.jsx";
+import Message from "./pages/Message/Message.jsx";
 
 function App() {
 
@@ -13,7 +14,9 @@ function App() {
               <Route element={<Layout />}>
                   <Route path="/" element={<Website />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path='/messages' element={<Messages />} />
+                  <Route path='/messages' element={<Messages />}>
+                      <Route path={':userId'} element={<Message />} />
+                  </Route>
               </Route>
           </Routes>
       </BrowserRouter>

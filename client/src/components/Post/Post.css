@@ -1,43 +1,43 @@
-.post-container{
-    width: 420px;
+.post-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
 }
-.content-container{
+.post {
+    max-width: 440px;
+    margin-top: 64px;
+}
+.content-container {
     margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    height: 600px;
+    margin-bottom: 12px;
+    min-height: 45vh;
+    max-height: 70vh;
+    overflow: hidden;
     border: 1px solid var(--secondary);
     border-radius: 4px;
 }
-.like-share-container{
+.like-share-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
-.like-share-container>*:hover{
+.like-share-container > *:hover {
     fill: var(--nickaname);
     cursor: pointer;
 }
-.post-owner>span:hover{
+.post-owner > span:hover {
     cursor: pointer;
 }
-.comment-container{
+
+.comment-container {
     margin-top: 20px;
-    margin-bottom: 100px;
 }
+
 @media(max-width: 500px) {
     .like-share-container, .post-owner, .comment-container{
-        padding: 0 30px;
-    }
-}
-@media(max-width: 450px) {
-    .post-container{
-        width: 360px;
-    }
-}
-@media(max-width: 400px) {
-    .post-container{
-        width: 320px;
+        padding: 0 16px;
     }
 }
