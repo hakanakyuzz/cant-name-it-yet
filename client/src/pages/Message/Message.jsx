@@ -10,7 +10,9 @@ const Message = () => {
                 <IoIosInformationCircleOutline />
             </div>
             <div className="message-bottom-continer">
-
+                <div className="chat-container">
+                </div>
+                <div className="send-container"></div>
             </div>
         </div>
     )

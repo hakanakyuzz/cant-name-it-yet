@@ -20,4 +20,14 @@
 }
 .info-container>:nth-child(2){
     color: var(--nickaname);
+    white-space: nowrap;
+}
+
+@media (max-width: 300px) {
+    .profile-nickname-message-open{
+        display: none;
+    }
+    .profile-name-message-open{
+        display: none;
+    }
 }

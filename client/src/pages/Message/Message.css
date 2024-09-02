@@ -9,12 +9,31 @@
     overflow: hidden;
 }
 .message-top{
+    position: fixed;
+    left: 476px;
+    right: 0;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid var(--secondary);
     padding: 14px;
 }
-.message-top > svg{
+.message-top >:nth-child(1){
+
+}
+.message-top >:nth-child(2){
     font-size: 36px;
     margin: 6px 0;
+    position: fixed;
+    right: 10px;
+}
+
+@media (max-width: 950px) {
+    .message-top{
+        left: 176px;
+    }
+}
+@media (max-width: 700px) {
+    .message-top{
+        left: 100px;
+    }
 }

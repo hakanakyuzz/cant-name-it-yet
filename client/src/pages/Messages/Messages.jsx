@@ -12,36 +12,36 @@ const Messages = () => {
                 </div>
                 <div className="user-message-container">
                     <div className="user-message">
-                        <div className='user-info-container'>
+                        <div className='message-user-info-container'>
                             <span>PP</span>
-                            <div className='info-container'>
+                            <div className='messages-info-container'>
                                 <span>hakanakyuz</span>
                                 <span>hello world! ....</span>
                             </div>
                         </div>
                     </div>
                     <div className="user-message">
-                        <div className='user-info-container'>
+                        <div className='message-user-info-container'>
                             <span>PP</span>
-                            <div className='info-container'>
+                            <div className='messages-info-container'>
                                 <span>hakanakyuz</span>
                                 <span>hello world! ....</span>
                             </div>
                         </div>
                     </div>
                     <div className="user-message">
-                        <div className='user-info-container'>
+                        <div className='message-user-info-container'>
                             <span>PP</span>
-                            <div className='info-container'>
+                            <div className='messages-info-container'>
                                 <span>hakanakyuz</span>
                                 <span>hello world! ....</span>
                             </div>
                         </div>
                     </div>
                     <div className="user-message">
-                        <div className='user-info-container'>
+                        <div className='message-user-info-container'>
                             <span>PP</span>
-                            <div className='info-container'>
+                            <div className='messages-info-container'>
                                 <span>hakanakyuz</span>
                                 <span>hello world! ....</span>
                             </div>
