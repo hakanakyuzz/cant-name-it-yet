@@ -20,36 +20,9 @@ const Messages = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="user-message">
-                        <div className='message-user-info-container'>
-                            <span>PP</span>
-                            <div className='messages-info-container'>
-                                <span>hakanakyuz</span>
-                                <span>hello world! ....</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="user-message">
-                        <div className='message-user-info-container'>
-                            <span>PP</span>
-                            <div className='messages-info-container'>
-                                <span>hakanakyuz</span>
-                                <span>hello world! ....</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="user-message">
-                        <div className='message-user-info-container'>
-                            <span>PP</span>
-                            <div className='messages-info-container'>
-                                <span>hakanakyuz</span>
-                                <span>hello world! ....</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <Outlet />
+            <Outlet/>
         </section>
     )
 }

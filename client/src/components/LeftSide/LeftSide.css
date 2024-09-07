@@ -54,6 +54,7 @@
 .left-side-container-message {
     width: 82px;
     padding-left: -5.5px;
+    margin-left: -5.5px;
 }
 .left-side-header.left-side-header-message {
     display: none;

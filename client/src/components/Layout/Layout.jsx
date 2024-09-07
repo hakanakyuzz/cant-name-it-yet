@@ -8,17 +8,19 @@ const Layout = () => {
     const location = useLocation()
     const currentPath = location.pathname
 
-    const hideFooterAndRightSide = ['/messages', '/profile', '/messages/userId']
-    const showFooterAndRightSide = !hideFooterAndRightSide.includes(currentPath)
+    const hideFooter = ['/messages', '/messages/userId']
+    const hideRightSide = ['/messages', '/profile', '/messages/userId']
+    const showFooter = !hideRightSide.includes(currentPath)
+    const showRightSide =  !hideFooter.includes(currentPath)
 
     return (
         <div className="layout-container">
             <LeftSide/>
             <div className="main-content">
                 <Outlet/>
-                {showFooterAndRightSide && <Footer/>}
+                {showRightSide && <Footer/>}
             </div>
-            {showFooterAndRightSide && <RightSide/>}
+            {showFooter && <RightSide/>}
         </div>
     )
 }

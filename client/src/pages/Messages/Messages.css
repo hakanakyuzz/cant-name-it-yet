@@ -18,7 +18,9 @@
     cursor: pointer;
 }
 .user-message-container{
+    height: calc(100vh - 78px);
     margin-top: 78px;
+    overflow-y: auto;
 }
 .user-message{
     padding: 12px 36px;
