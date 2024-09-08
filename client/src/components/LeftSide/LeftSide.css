@@ -35,6 +35,7 @@
     width: 100%;
     transition: all 0.15s ease;
     margin-bottom: 8px;
+    position: relative;
 }
 .nav-container>span{
     background: transparent;

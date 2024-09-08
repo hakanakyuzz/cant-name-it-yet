@@ -1,8 +1,14 @@
 import './Messages.css'
 import {RiSendPlaneLine} from "react-icons/ri";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 
 const Messages = () => {
+    const navigate = useNavigate()
+
+    const handleMessageOpen = () => {
+        navigate("/messages/userId")
+    }
+
     return (
         <section className="messages-section">
             <div className='messages-container'>
@@ -12,7 +18,7 @@ const Messages = () => {
                 </div>
                 <div className="user-message-container">
                     <div className="user-message">
-                        <div className='message-user-info-container'>
+                        <div className='message-user-info-container' onClick={handleMessageOpen}>
                             <span>PP</span>
                             <div className='messages-info-container'>
                                 <span>hakanakyuz</span>

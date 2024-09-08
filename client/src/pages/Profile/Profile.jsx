@@ -13,7 +13,7 @@ const Profile = () => {
                         <span>Edit Profile</span>
                     </div>
                     <div className='profile-user-info-section-2'>
-                        <span>0 Posts</span>
+                        <span>13 Posts</span>
                         <span>217 Followers</span>
                         <span>317 Followers</span>
                     </div>
