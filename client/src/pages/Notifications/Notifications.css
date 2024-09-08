@@ -23,8 +23,6 @@
 .notification-info-inside{
     display: flex;
     align-items: center;
-    word-break: break-all; /* Break words into characters if necessary */
-    white-space: normal;
 }
 .notification-info-inside>:nth-child(1){
     flex-shrink: 0;
@@ -66,5 +64,12 @@
     .notifications-section{
         max-width: none;
         width: 100%;
+    }
+
+}
+@media(max-width: 310px) {
+    .notification-info-inside{
+        word-break: break-all;
+        white-space: normal;
     }
 }

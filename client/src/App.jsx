@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Messages from "./pages/Messages/Messages.jsx";
 import Message from "./pages/Message/Message.jsx";
 import Notifications from "./pages/Notifications/Notifications.jsx";
+import Search from "./pages/Search/Search.jsx";
 
 function App() {
 
@@ -16,9 +17,10 @@ function App() {
                   <Route path="/" element={<Website />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path='/messages' element={<Messages />}>
-                      <Route path={':userId'} element={<Message />} />
+                      <Route path=':userId' element={<Message />} />
                   </Route>
-                  <Route path={'/notifications'} element={<Notifications />} />
+                  <Route path='/notifications' element={<Notifications />} />
+                  <Route path='/search' element={<Search />} />
               </Route>
           </Routes>
       </BrowserRouter>
