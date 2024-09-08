@@ -10,13 +10,15 @@
     margin-top: 64px;
 }
 .content-container {
+    aspect-ratio: 0.8;
     margin-top: 10px;
     margin-bottom: 12px;
-    min-height: 45vh;
-    max-height: 70vh;
     overflow: hidden;
     border: 1px solid var(--secondary);
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .like-share-container {
     width: 100%;

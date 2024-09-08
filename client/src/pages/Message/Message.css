@@ -126,6 +126,9 @@
     .message-container{
         left: 100px;
     }
+    .chat-container{
+        margin-bottom: 130px;
+    }
     .message-top{
         left: 100px;
     }
@@ -135,5 +138,8 @@
     .send-container {
         left: 100px;
         bottom: 60px;
+    }
+    .sends{
+        margin-bottom: 0;
     }
 }
