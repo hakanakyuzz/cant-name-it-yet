@@ -5,11 +5,24 @@ import {IoCreateOutline, IoSearchOutline} from "react-icons/io5";
 import {BiMessageSquareDetail} from "react-icons/bi";
 import {Link, useLocation} from "react-router-dom";
 import {RxHamburgerMenu, RxVercelLogo} from "react-icons/rx";
+import {useEffect, useState} from "react";
+import CreatePost from "../CreatePost/CreatePost.jsx";
 
 const LeftSide = () => {
     const location = useLocation()
     const currentPath = location.pathname
     const isMessagePage = currentPath === '/messages' || currentPath === '/messages/userId'
+
+    const [isCreateFieldVisible, setCreateFieldVisible] = useState(false)
+
+    const handleToggleCreateField = () => {
+        setCreateFieldVisible(!isCreateFieldVisible)
+    }
+
+    useEffect(() => {
+        isCreateFieldVisible ? document.body.style.overflow = "hidden" : document.body.style.overflow = ""
+
+    }, [isCreateFieldVisible])
 
     return (
         <div className={`left-side-container ${isMessagePage ? 'left-side-container-message' : ''}`}>
@@ -40,10 +53,11 @@ const LeftSide = () => {
                     <BiMessageSquareDetail/>
                     <span>Messages</span>
                 </Link>
-                <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
+                <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`} onClick={handleToggleCreateField}>
                     <IoCreateOutline/>
                     <span>Create</span>
                 </div>
+                {isCreateFieldVisible && <CreatePost closeModal={handleToggleCreateField} />}
             </div>
             <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
                 <RxHamburgerMenu/>

@@ -1,4 +1,4 @@
-.left-side-container{
+.left-side-container {
     width: 250px;
     position: fixed;
     top: 0;
@@ -11,23 +11,23 @@
     border-right: 1px solid var(--secondary);
     padding: 10px;
 }
-.left-side-header{
+.left-side-header {
     display: none;
 }
-.left-inner-side-container{
+.left-inner-side-container {
     display: flex;
     flex-direction: column;
 }
-.nav-logo-container{
+.nav-logo-container {
     margin-bottom: 40px;
     margin-top: 30px;
     padding: 16px;
 }
-.nav-logo-container>svg{
+.nav-logo-container > svg {
     display: none;
     margin-bottom: -10.5px;
 }
-.nav-container{
+.nav-container {
     display: flex;
     align-items: center;
     border-radius: 8px;
@@ -37,19 +37,19 @@
     margin-bottom: 8px;
     position: relative;
 }
-.nav-container>span{
+.nav-container > span {
     background: transparent;
     font-size: 16px;
 }
-.nav-container>svg{
+.nav-container > svg {
     margin-right: 10px;
     transition: all 0.15s ease;
 }
-.nav-container:hover{
+.nav-container:hover {
     background: #1b1b1b;
     cursor: pointer;
 }
-.nav-container:hover svg{
+.nav-container:hover svg {
     transform: scale(1.1);
 }
 .left-side-container-message {
@@ -60,16 +60,16 @@
 .left-side-header.left-side-header-message {
     display: none;
 }
-.nav-logo-container-message>span{
+.nav-logo-container-message > span {
     display: none;
 }
-.nav-logo-container-message>svg{
+.nav-logo-container-message > svg {
     display: flex;
 }
-.nav-container-message>span{
+.nav-container-message > span {
     display: none;
 }
-.nav-container-message>svg{
+.nav-container-message > svg {
     margin: 0 auto;
 }
 
@@ -78,16 +78,16 @@
         width: 82px;
         padding-left: -5.5px;
     }
-    .nav-logo-container>span {
+    .nav-logo-container > span {
         display: none;
     }
-    .nav-logo-container>svg{
+    .nav-logo-container > svg{
         display: flex;
     }
-    .nav-container>span{
+    .nav-container > span{
         display: none;
     }
-    .nav-container>svg{
+    .nav-container > svg{
         margin: 0 auto;
     }
 }
@@ -106,20 +106,20 @@
         border-top: 1px solid var(--secondary);
         padding-top: 20px;
     }
-    .left-side-container>:nth-child(3){
+    .left-side-container>:nth-child(3) {
         display: none;
     }
-    .left-inner-side-container{
+    .left-inner-side-container {
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
         align-items: center;
     }
-    .nav-container{
+    .nav-container {
         max-width: 50px;
         max-height: 50px;
     }
-    .left-side-header{
+    .left-side-header {
         width: 100%;
         display: flex;
         align-items: center;

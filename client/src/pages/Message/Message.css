@@ -93,7 +93,7 @@
     height: 40px;
     border: 1px solid var(--nickaname);
     border-radius: 32px;
-    padding: 0 12px;
+    padding: 0 40px 0 12px;
 }
 .send-container > span{
     position: fixed;
