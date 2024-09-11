@@ -1,11 +1,11 @@
-.messages-container{
+.messages-container {
     width: 400px;
     height: 100vh;
     left: 76px;
     position: absolute;
     border-right: 1px solid var(--secondary);
 }
-.user-container{
+.user-container {
     position: fixed;
     width: 399px;
     display: flex;
@@ -14,35 +14,35 @@
     padding: 24px 32px;
     border-bottom: 1px solid var(--secondary);
 }
-.user-container>:nth-child(2):hover{
+.user-container >:nth-child(2):hover {
     cursor: pointer;
 }
-.user-message-container{
+.user-message-container {
     height: calc(100vh - 78px);
     margin-top: 78px;
     overflow-y: auto;
 }
-.user-message{
+.user-message {
     padding: 12px 36px;
 }
-.user-message:hover{
+.user-message:hover {
     background: var(--message-hover);
     cursor: pointer;
 }
-.user-message:hover .messages-info-container>*{
+.user-message:hover .messages-info-container > *{
     background: var(--message-hover);
 }
-.user-message:hover .message-user-info-container{
+.user-message:hover .message-user-info-container {
     background-color: transparent;
 }
-.user-message:hover .messages-info-container{
+.user-message:hover .messages-info-container {
     background-color: transparent;
 }
-.message-user-info-container{
+.message-user-info-container {
     display: flex;
     align-items: center;
 }
-.message-user-info-container>span{
+.message-user-info-container > span {
     width: 60px;
     height: 60px;
     background: #737373;
@@ -51,42 +51,42 @@
     align-items: center;
     justify-content: center;
 }
-.messages-info-container{
+.messages-info-container {
     display: flex;
     flex-direction: column;
     padding: 0 12px;
 }
-.messages-info-container>:nth-child(2){
+.messages-info-container >:nth-child(2) {
     color: var(--nickaname);
 }
 
 @media (max-width: 700px) {
-    .messages-container{
+    .messages-container {
         left: 0;
     }
 }
 @media (max-width: 950px) {
-    .messages-container{
+    .messages-container {
         width: 100px;
     }
-    .user-container{
+    .user-container {
         align-items: center;
         justify-content: center;
         padding: 24px 24px;
         width: 100px;
         border-right: 1px solid var(--secondary);
     }
-    .user-message{
+    .user-message {
         padding: 12px 16px;
     }
-    .user-container > span{
+    .user-container > span {
         display: none;
     }
-    .message-user-info-container{
+    .message-user-info-container {
         align-items: center;
         justify-content: center;
     }
-    .messages-info-container{
+    .messages-info-container {
         display: none;
     }
 }

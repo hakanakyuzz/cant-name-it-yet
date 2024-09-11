@@ -26,11 +26,11 @@
     align-items: center;
     background: transparent;
 }
-.model-header > span{
+.model-header > span {
     background: transparent;
     padding: 10px 0;
 }
-.modal-content > form{
+.modal-content > form {
     background: transparent;
 }
 .text-area {
@@ -71,7 +71,7 @@
     .modal-content {
         height: 480px;
     }
-    .close-btn{
+    .close-btn {
         top: 70px;
     }
 }

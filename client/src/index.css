@@ -3,17 +3,17 @@
     --nickaname: rgb(108, 108, 108);
     --message-hover: #101010;
 }
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-weight: 300;
 }
-a{
+a {
     text-decoration: none;
 }
-svg{
+svg {
     font-size: 30px;
     background: transparent;
 }

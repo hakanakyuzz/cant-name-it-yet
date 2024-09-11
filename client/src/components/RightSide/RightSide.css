@@ -1,4 +1,4 @@
-.right-side-container{
+.right-side-container {
     position: fixed;
     width: 350px;
     height: 100vh;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 1250px) {
-    .right-side-container{
+    .right-side-container {
         display: none;
     }
 }

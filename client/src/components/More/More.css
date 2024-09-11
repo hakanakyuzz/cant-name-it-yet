@@ -1,0 +1,53 @@
+.more-modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-bottom: 80px;
+    padding-left: 24px;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.more-modal-content {
+    background: #222222;
+    padding: 0 12px;
+    border-radius: 12px;
+    width: 300px;
+    max-width: 90%;
+}
+.more-model-header {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    cursor: pointer;
+}
+.more-model-header > span {
+    background: transparent;
+    padding: 16px 16px;
+    color: red;
+    width: 100%;
+    border-radius: 6px;
+}
+.more-model-header > span:hover {
+    background: var(--nickaname);
+}
+
+@media (max-width: 700px) {
+    .more-modal-overlay {
+        padding-top: 67px;
+        padding-left: 0;
+        padding-bottom: 0;
+        top: 0;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+    .more-modal-content {
+        border-radius: 12px 0 12px 12px;
+    }
+}

@@ -19,7 +19,7 @@
     color: var(--nickaname);
     font-weight: normal;
 }
-.clear-term{
+.clear-term {
     position: absolute;
     right: 12px;
     background: none;
@@ -38,7 +38,7 @@
 }
 
 @media (max-width: 900px) {
-    .search-container{
+    .search-container {
         max-width: 522px;
     }
 }

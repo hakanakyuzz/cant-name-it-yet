@@ -14,6 +14,9 @@
 .left-side-header {
     display: none;
 }
+.more-when-small-screen {
+
+}
 .left-inner-side-container {
     display: flex;
     flex-direction: column;
@@ -81,13 +84,13 @@
     .nav-logo-container > span {
         display: none;
     }
-    .nav-logo-container > svg{
+    .nav-logo-container > svg {
         display: flex;
     }
-    .nav-container > span{
+    .nav-container > span {
         display: none;
     }
-    .nav-container > svg{
+    .nav-container > svg {
         margin: 0 auto;
     }
 }
@@ -127,7 +130,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        padding: 12px 32px;
+        padding: 8px 32px 0;
         border-bottom: 1px solid var(--secondary);
     }
 }

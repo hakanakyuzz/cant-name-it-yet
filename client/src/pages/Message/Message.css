@@ -1,4 +1,4 @@
-.message-container{
+.message-container {
     position: absolute;
     top: 0;
     left: 476px;
@@ -9,7 +9,7 @@
     overflow: hidden;
     height: 100vh;
 }
-.message-top{
+.message-top {
     position: fixed;
     left: 476px;
     right: 0;
@@ -18,20 +18,20 @@
     border-bottom: 1px solid var(--secondary);
     padding: 14px;
 }
-.message-top >:nth-child(2){
+.message-top >:nth-child(2) {
     font-size: 36px;
     margin: 6px 0;
     position: fixed;
     right: 10px;
 }
-.chat-container{
+.chat-container {
     margin-top: 78px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.sends{
+.sends {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -40,7 +40,7 @@
     padding: 16px 12px;
     margin-bottom: 60px;
 }
-.sends-from-user{
+.sends-from-user {
     display: flex;
     align-items: center;
     padding: 8px 6px;
@@ -61,20 +61,20 @@
     margin-right: 8px;
     flex-shrink: 0;
 }
-.sends-from-user-message{
+.sends-from-user-message {
     background: transparent;
     word-break: break-all;
 }
-.from-other{
+.from-other {
     align-self: flex-start;
     background: var(--secondary);
 }
-.from-user{
+.from-user {
     align-self: flex-end;
     background: cornflowerblue;
     padding: 12px 8px;
 }
-.from-user > span{
+.from-user > span {
     display: none;
 }
 .send-container {
@@ -95,14 +95,14 @@
     border-radius: 32px;
     padding: 0 40px 0 12px;
 }
-.send-container > span{
+.send-container > span {
     position: fixed;
     right: 32px;
     color: cornflowerblue;
     padding: 0 12px;
     border-radius: 32px;
 }
-.send-container > span:hover{
+.send-container > span:hover {
     color: white;
     cursor: pointer;
 }
@@ -112,10 +112,10 @@
 }
 
 @media (max-width: 950px) {
-    .message-container{
+    .message-container {
         left: 176px;
     }
-    .message-top{
+    .message-top {
         left: 176px;
     }
     .send-container {
@@ -126,10 +126,10 @@
     .message-container{
         left: 100px;
     }
-    .chat-container{
+    .chat-container {
         margin-bottom: 130px;
     }
-    .message-top{
+    .message-top {
         left: 100px;
     }
     .sends-from-user {
@@ -139,7 +139,7 @@
         left: 100px;
         bottom: 60px;
     }
-    .sends{
+    .sends {
         margin-bottom: 0;
     }
 }

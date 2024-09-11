@@ -1,10 +1,10 @@
-.user-info-container{
+.user-info-container {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
 }
-.profile-picture-container{
+.profile-picture-container {
     flex-shrink: 0;
     width: 50px;
     height: 50px;
@@ -14,21 +14,21 @@
     align-items: center;
     justify-content: center;
 }
-.info-container{
+.info-container {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
 }
-.info-container>:nth-child(2){
+.info-container>:nth-child(2) {
     color: var(--nickaname);
     white-space: nowrap;
 }
 
 @media (max-width: 300px) {
-    .profile-nickname-message-open{
+    .profile-nickname-message-open {
         display: none;
     }
-    .profile-name-message-open{
+    .profile-name-message-open {
         display: none;
     }
 }

@@ -1,4 +1,4 @@
-.notifications-section{
+.notifications-section {
     display: flex;
     flex-direction: column;
     max-width: 660px;
@@ -8,23 +8,23 @@
 .notifications-section > ul {
     list-style-type: none;
 }
-.notifications-section > ul > li{
+.notifications-section > ul li {
     padding: 8px 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-.notification-info{
+.notification-info {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.notification-info-inside{
+.notification-info-inside {
     display: flex;
     align-items: center;
 }
-.notification-info-inside>:nth-child(1){
+.notification-info-inside >:nth-child(1) {
     flex-shrink: 0;
     width: 50px;
     height: 50px;
@@ -35,20 +35,20 @@
     justify-content: center;
     margin-right: 8px;
 }
-.notification-text{
+.notification-text {
     display: flex;
     align-items: center;
 }
-.notification-nickname{
+.notification-nickname {
     margin-right: 4px;
 }
-.notification-nickname>:nth-child(1){
+.notification-nickname >:nth-child(1) {
     font-weight: bold;
 }
-.notification-nickname>:nth-child(3){
+.notification-nickname >:nth-child(3) {
     font-weight: lighter;
 }
-.is-follow{
+.is-follow {
     background: cornflowerblue;
     padding: 4px 12px;
     border-radius: 6px;

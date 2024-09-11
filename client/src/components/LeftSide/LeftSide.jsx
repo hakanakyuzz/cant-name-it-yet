@@ -7,6 +7,7 @@ import {Link, useLocation} from "react-router-dom";
 import {RxHamburgerMenu, RxVercelLogo} from "react-icons/rx";
 import {useEffect, useState} from "react";
 import CreatePost from "../CreatePost/CreatePost.jsx";
+import More from "../More/More.jsx";
 
 const LeftSide = () => {
     const location = useLocation()
@@ -14,9 +15,13 @@ const LeftSide = () => {
     const isMessagePage = currentPath === '/messages' || currentPath === '/messages/userId'
 
     const [isCreateFieldVisible, setCreateFieldVisible] = useState(false)
+    const [isMoreVisible, setMoreVisible] = useState(false)
 
     const handleToggleCreateField = () => {
         setCreateFieldVisible(!isCreateFieldVisible)
+    }
+    const handleToggleMore = () => {
+        setMoreVisible(!isMoreVisible)
     }
 
     useEffect(() => {
@@ -30,7 +35,9 @@ const LeftSide = () => {
                 <Link to={`/`} className={``}>
                     <RxVercelLogo/>
                 </Link>
-                <RxHamburgerMenu/>
+                <div className='more-when-small-screen nav-container' onClick={handleToggleMore}>
+                    <RxHamburgerMenu/>
+                </div>
             </div>
             <div className='left-inner-side-container'>
                 <Link to={`/`} className={`nav-logo-container ${isMessagePage ? 'nav-logo-container-message' : ''}`}>
@@ -59,10 +66,11 @@ const LeftSide = () => {
                 </div>
                 {isCreateFieldVisible && <CreatePost closeModal={handleToggleCreateField} />}
             </div>
-            <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
+            <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`} onClick={handleToggleMore}>
                 <RxHamburgerMenu/>
                 <span>More</span>
             </div>
+            {isMoreVisible && <More closeModal={handleToggleMore} />}
         </div>
     )
 }
