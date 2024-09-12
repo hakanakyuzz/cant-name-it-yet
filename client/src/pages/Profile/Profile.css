@@ -37,9 +37,11 @@
 .profile-user-info-section-1 >:nth-child(2) {
     padding: 12px 8px;
     border-radius: 8px;
-}
-.profile-user-info-section-1 >:nth-child(2) {
     background: var(--secondary);
+    cursor: pointer;
+}
+.profile-user-info-section-1 >:nth-child(2):hover {
+    background: cornflowerblue;
 }
 .profile-user-info-section-2 >:nth-child(1), .profile-user-info-section-2>:nth-child(2) {
     margin-right: 16px;

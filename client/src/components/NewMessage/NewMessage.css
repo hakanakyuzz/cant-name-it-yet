@@ -1,0 +1,109 @@
+.new-message-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+.new-message-modal-content {
+    background: #222222;
+    padding: 24px 28px;
+    border-radius: 10px;
+    width: 580px;
+    height: 680px;
+    max-width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.new-message-modal-inner-overlay > form {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-top: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+}
+.new-message-modal-inner-overlay{
+    background: transparent;
+}
+.new-message-model-header {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+.new-message-model-header > span {
+    background: transparent;
+    padding: 10px 0;
+}
+.new-message-input-area {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.new-message-share-btn {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.new-message-share-btn:hover {
+    background-color: #3b7bd4;
+}
+.new-message-share-btn-disabled{
+    background-color: #555;
+}
+.new-message-close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 48px;
+}
+.user-suggestions {
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+}
+.user-suggestion-item {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+.user-suggestion-item:hover {
+    background: #444;
+}
+.no-user-found {
+    padding: 10px;
+    color: #888;
+}
+
+@media (max-width: 700px) {
+    .new-message-modal-content {
+        height: 480px;
+    }
+    .new-message-close-btn {
+        top: 70px;
+    }
+    .new-message-text-area{
+        margin-top: 0;
+    }
+}

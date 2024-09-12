@@ -35,7 +35,7 @@
     border-radius: 6px;
 }
 .more-model-header > span:hover {
-    background: var(--nickaname);
+    background: var(--secondary);
 }
 
 @media (max-width: 700px) {
