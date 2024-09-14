@@ -34,8 +34,9 @@
     cursor: pointer;
 }
 
-.comment-container {
+.post-comment-container {
     margin-top: 20px;
+    cursor: pointer;
 }
 
 @media(max-width: 500px) {
