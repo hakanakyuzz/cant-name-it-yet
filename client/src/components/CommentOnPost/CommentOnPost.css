@@ -13,17 +13,17 @@
 .comment-on-post-modal-content {
     position: relative;
     display: flex;
-    width: 1200px;
     max-width: 90%;
     height: 800px;
     max-height: 90%;
     border-radius: 10px;
     background: #222222;
+    border: 1px solid var(--secondary);
 }
-.comment-on-post-left-side{
-    flex: 1;
+.comment-on-post-left-side {
+    flex: 1 1 auto;
 }
-.comment-on-post-content-container{
+.comment-on-post-content-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,14 +32,19 @@
     overflow: hidden;
     border-right: 1px solid var(--secondary);
 }
-.comment-on-post-right-side{
-    flex: 1;
-    padding: 12px;
+.comment-on-post-right-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 440px;
+    width: 100%;
 }
 .comment-on-post-user-info-container {
     display: flex;
     align-items: flex-start;
+    flex-shrink: 0;
     width: 100%;
+    padding: 16px;
 }
 .comment-on-post-profile-picture-container {
     flex-shrink: 0;
@@ -79,6 +84,27 @@
     cursor: pointer;
     background: transparent;
 }
+.comment-on-post-post {
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    height: 52px;
+    border-top: 1px solid var(--secondary);
+}
+.comment-on-post-post > input {
+    outline: none;
+    width: 100%;
+    height: 40px;
+    border: none;
+}
+.comment-on-post-post input::placeholder {
+    color: var(--nickaname);
+    font-weight: normal;
+}
 
 @media (max-width: 1100px) {
     .comment-on-post-modal-content{
@@ -91,7 +117,13 @@
     }
 }
 @media (max-width: 700px) {
+    .comment-on-post-modal-content{
+        max-width: 100%;
+    }
     .comment-on-post-left-side{
         display: none;
+    }
+    .comment-on-post-right-side{
+        flex: 1;
     }
 }

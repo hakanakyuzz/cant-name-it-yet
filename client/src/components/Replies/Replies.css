@@ -1,43 +1,37 @@
-/*.replies-container {*/
-/*    margin-top: 16px;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: flex-start;*/
-/*}*/
-.replies-inner-container {
+.replies-container {
+    margin-top: 20px;
+    margin-left: 56px;
+}
+.reply {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
 }
-.replier-info-container > span {
-    font-weight: lighter;
-    margin-right: 4px;
-}
-.comment-info-container {
+.replies-profile-picture-container {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #737373;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    margin-right: 16px;
 }
-.comment-info-container > span {
+.replies-info-container {
+    margin-top: 4px;
+}
+.replies-info-container > span {
     font-weight: lighter;
     color: var(--nickaname);
     margin-inline-end: 8px;
     margin-top: 8px;
     cursor: pointer;
 }
-.view-replies{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-weight: lighter;
-    margin-top: 16px;
-    margin-left: 2px;
-}
-.view-replies > span {
-    color: var(--nickaname);
-    cursor: pointer;
-}
-.comment-like{
-    font-size: 24px;
+.replies-like {
+    font-size: 20px;
     flex-shrink: 0;
+    margin-left: 8px;
+}
+.replies-like:hover {
+    fill: var(--nickaname);
+    cursor: pointer;
 }
