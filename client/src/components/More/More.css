@@ -13,13 +13,13 @@
 }
 .more-modal-content {
     background: #222222;
-    padding: 0 12px;
+    padding: 0 8px;
     border-radius: 12px;
     width: 300px;
     max-width: 90%;
 }
 .more-model-header {
-    padding: 16px 0;
+    padding: 8px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,14 +27,14 @@
     background: transparent;
     cursor: pointer;
 }
-.more-model-header > span {
+.more-model-header > * {
     background: transparent;
-    padding: 16px 16px;
+    padding: 12px;
     color: red;
     width: 100%;
     border-radius: 6px;
 }
-.more-model-header > span:hover {
+.more-model-header > *:hover {
     background: var(--secondary);
 }
 

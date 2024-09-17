@@ -64,6 +64,11 @@ const LeftSide = () => {
                     <IoCreateOutline/>
                     <span>Create</span>
                 </div>
+                <div className='left-side-profile-picture-container'>
+                    <Link to={`/profile`} className='left-side-profile-picture'>
+                        PP
+                    </Link>
+                </div>
                 {isCreateFieldVisible && <CreatePost closeModal={handleToggleCreateField} />}
             </div>
             <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`} onClick={handleToggleMore}>

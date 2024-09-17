@@ -75,6 +75,21 @@
 .nav-container-message > svg {
     margin: 0 auto;
 }
+.left-side-profile-picture-container{
+    display: none;
+    align-self: center;
+    margin-right: 8px;
+}
+.left-side-profile-picture {
+    display: flex;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: #737373;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
 
 @media(max-width: 1200px) {
     .left-side-container {
@@ -92,6 +107,9 @@
     }
     .nav-container > svg {
         margin: 0 auto;
+    }
+    .left-side-profile-picture-container{
+        display: flex;
     }
 }
 @media(max-width: 700px) {
@@ -132,5 +150,8 @@
         left: 0;
         padding: 8px 32px 0;
         border-bottom: 1px solid var(--secondary);
+    }
+    .left-side-profile-picture-container{
+        display: none;
     }
 }
