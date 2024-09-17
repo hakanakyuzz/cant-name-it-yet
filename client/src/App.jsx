@@ -9,7 +9,6 @@ import Notifications from "./pages/Notifications/Notifications.jsx";
 import Search from "./pages/Search/Search.jsx";
 
 function App() {
-
   return (
       <BrowserRouter>
           <Routes>

@@ -18,7 +18,6 @@
     max-height: 90%;
     border-radius: 10px;
     background: #222222;
-    border: 1px solid var(--secondary);
 }
 .comment-on-post-left-side {
     flex: 1 1 auto;
@@ -100,6 +99,14 @@
     width: 100%;
     height: 40px;
     border: none;
+}
+.comment-on-post-post > div {
+    margin: 0 12px;
+    color: var(--fancy-blue);
+    cursor: pointer;
+}
+.comment-on-post-post > div:hover {
+    color: var(--fancy-blue-hover);
 }
 .comment-on-post-post input::placeholder {
     color: var(--nickaname);

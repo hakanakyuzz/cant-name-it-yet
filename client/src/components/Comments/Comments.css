@@ -46,3 +46,6 @@
     color: var(--fancy-blue);
     cursor: pointer;
 }
+.view-replies > span:hover {
+    color: var(--fancy-blue-hover);
+}

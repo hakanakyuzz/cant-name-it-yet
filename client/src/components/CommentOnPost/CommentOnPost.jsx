@@ -38,6 +38,7 @@ const CommentOnPost = ({ closeCommentOnPost }) => {
                             placeholder='Add a comment...'
                             value={commentTerm} onChange={(e) => setCommentTerm(e.target.value)}
                         />
+                        <div>Send</div>
                     </div>
                 </div>
             </div>
