@@ -1,15 +1,23 @@
 import './Message.css'
 import UserInfo from "../../components/UserInfo/UserInfo.jsx";
 import {IoIosInformationCircleOutline} from "react-icons/io";
+import {useEffect, useRef} from "react";
 
 const Message = () => {
+    const chatContainerRef = useRef(null)
+
+    useEffect(() => {
+        if (chatContainerRef.current)
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }, [])
+
     return (
         <div className='message-container'>
             <div className="message-top">
                 <UserInfo />
                 <IoIosInformationCircleOutline />
             </div>
-            <div className="chat-container">
+            <div className="chat-container" ref={chatContainerRef}>
                 <div className='sends'>
                     <div className='sends-from-user from-other'>
                         <span>PP</span>
