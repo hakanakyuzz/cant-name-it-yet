@@ -7,6 +7,7 @@ import Messages from "./pages/Messages/Messages.jsx";
 import Message from "./pages/Message/Message.jsx";
 import Notifications from "./pages/Notifications/Notifications.jsx";
 import Search from "./pages/Search/Search.jsx";
+import EditProfile from "./pages/EditProfile/EditProfile.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                   </Route>
                   <Route path='/notifications' element={<Notifications />} />
                   <Route path='/search' element={<Search />} />
+                  <Route path='/edit-profile' element={<EditProfile />}></Route>
               </Route>
           </Routes>
       </BrowserRouter>

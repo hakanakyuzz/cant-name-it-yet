@@ -9,6 +9,9 @@
     align-items: flex-start;
     padding-top: 30px;
 }
+.edit-profile-page{
+    display: none;
+}
 
 @media (max-width: 1250px) {
     .right-side-container {

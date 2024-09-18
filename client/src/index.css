@@ -6,16 +6,20 @@
     --fancy-blue: #427ce8;
     --fancy-blue-hover: #2d5cb1;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-weight: 300;
+    transition: all 0.05s ease-in-out;
 }
+
 a {
     text-decoration: none;
 }
+
 svg {
     font-size: 30px;
     background: transparent;

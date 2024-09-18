@@ -1,16 +1,21 @@
 import './Profile.css'
+import {Link} from "react-router-dom";
+import CommentOnPost from "../../components/CommentOnPost/CommentOnPost.jsx";
+import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 
 const Profile = () => {
+    const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
+
     return (
         <div className='profile-container'>
             <div className='profile-user-container'>
-                <div className='profile-user-profile-picture'>
+                <div className='profile-user-profile-picture' >
                     PP
                 </div>
                 <div className='profile-user-info-container'>
                     <div className='profile-user-info-section-1'>
                         <span>hakanakyuz</span>
-                        <span>Edit Profile</span>
+                        <Link to={`/edit-profile`}>Edit Profile</Link>
                     </div>
                     <div className='profile-user-info-section-2'>
                         <span>13 Posts</span>
@@ -23,45 +28,37 @@ const Profile = () => {
                 </div>
             </div>
             <div className="profile-post-container">
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post1
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post2
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post3
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post4
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post5
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post1
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post2
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post3
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post4
                 </div>
-                <div className='profile-post'>
+                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post5
                 </div>
-                <div className='profile-post'>
-                    post1
-                </div>
-                <div className='profile-post'>
-                    post2
-                </div>
-                <div className='profile-post'>
-                    post3
-                </div>
+                {isCommentOnPostVisible && <CommentOnPost closeCommentOnPost={toggleCommentOnPostVisible} />}
             </div>
         </div>
     )

@@ -2,21 +2,12 @@ import './Post.css'
 import UserInfo from "../UserInfo/UserInfo.jsx";
 import {CiHeart} from "react-icons/ci";
 import {LiaShareSolid} from "react-icons/lia";
-import {useEffect, useState} from "react";
 import CommentOnPost from "../CommentOnPost/CommentOnPost.jsx";
+import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 
 
 const Post = () => {
-    const [isCommentOnPostVisible, setCommentOnPostVisible] = useState(false)
-
-    const handleCommentOnPostVisible = () => {
-        setCommentOnPostVisible(!isCommentOnPostVisible)
-    }
-
-    useEffect(() => {
-        isCommentOnPostVisible ? document.body.style.overflow = "hidden" : document.body.style.overflow = ""
-
-    }, [isCommentOnPostVisible])
+    const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
 
     return (
         <div className='post-container'>
@@ -32,10 +23,10 @@ const Post = () => {
                 <div className='post-owner'>
                     <span>hakanakyuz</span> In linguistics and grammar, a sentence is a linguistic expression
                 </div>
-                <div className='post-comment-container' onClick={handleCommentOnPostVisible}>
+                <div className='post-comment-container' onClick={toggleCommentOnPostVisible}>
                     view all <span>{70}</span> comments
                 </div>
-                {isCommentOnPostVisible && <CommentOnPost closeCommentOnPost={handleCommentOnPostVisible} />}
+                {isCommentOnPostVisible && <CommentOnPost closeCommentOnPost={toggleCommentOnPostVisible} />}
             </div>
             {/*<div className="post">*/}
             {/*    <UserInfo/>*/}
