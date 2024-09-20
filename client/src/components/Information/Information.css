@@ -1,0 +1,36 @@
+.information-modal-overlay {
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+}
+.information-modal-content {
+    background: #222222;
+    border-radius: 8px;
+    margin-top: 64px;
+}
+.information-model-header {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+}
+.information-model-header > * {
+    background: transparent;
+    padding: 4px 8px;
+    color: red;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 20px;
+}
+.information-model-header > *:hover {
+    background: var(--secondary);
+    cursor: pointer;
+}

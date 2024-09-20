@@ -1,7 +1,8 @@
 import './Message.css'
 import UserInfo from "../../components/UserInfo/UserInfo.jsx";
 import {IoIosInformationCircleOutline} from "react-icons/io";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import Information from "../../components/Information/Information.jsx";
 
 const Message = () => {
     const chatContainerRef = useRef(null)
@@ -11,11 +12,19 @@ const Message = () => {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
     }, [])
 
+    const [isInformationVisible, setInformationVisible] = useState(false)
+    const handleInformationVisible = () => {
+        setInformationVisible(!isInformationVisible)
+    }
+
     return (
         <div className='message-container'>
             <div className="message-top">
                 <UserInfo />
-                <IoIosInformationCircleOutline />
+                <div className='message-top-info-container'>
+                    <IoIosInformationCircleOutline onClick={handleInformationVisible}/>
+                    {isInformationVisible && <Information closeModal={handleInformationVisible} />}
+                </div>
             </div>
             <div className="chat-container" ref={chatContainerRef}>
                 <div className='sends'>
