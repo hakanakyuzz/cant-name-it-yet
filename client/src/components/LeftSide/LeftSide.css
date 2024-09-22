@@ -14,9 +14,6 @@
 .left-side-header {
     display: none;
 }
-.more-when-small-screen {
-
-}
 .left-inner-side-container {
     display: flex;
     flex-direction: column;
@@ -47,6 +44,7 @@
 .nav-container > svg {
     margin-right: 10px;
     transition: all 0.15s ease;
+    margin-left: 6px;
 }
 .nav-container:hover {
     background: #1b1b1b;
@@ -56,9 +54,7 @@
     transform: scale(1.1);
 }
 .left-side-container-message {
-    width: 82px;
-    padding-left: -5.5px;
-    margin-left: -5.5px;
+    width: auto;
 }
 .left-side-header.left-side-header-message {
     display: none;
@@ -80,6 +76,9 @@
     align-self: center;
     margin-right: 8px;
 }
+.left-side-profile-picture-container-message{
+    display: flex;
+}
 .left-side-profile-picture {
     display: flex;
     flex-shrink: 0;
@@ -93,8 +92,8 @@
 
 @media(max-width: 1200px) {
     .left-side-container {
-        width: 82px;
         padding-left: -5.5px;
+        width: auto;
     }
     .nav-logo-container > span {
         display: none;
