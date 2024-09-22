@@ -77,6 +77,7 @@ const EditProfile = () => {
                     </div>
                     <button type="submit" className="change-profile-picture">Save Changes</button>
                 </form>
+                <button className="change-profile-picture delete-this-account">Delete This Account</button>
             </div>
         </div>
     )

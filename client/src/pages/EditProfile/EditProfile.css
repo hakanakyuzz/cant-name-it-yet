@@ -37,13 +37,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.button-resize{
-    max-width: 216px;
+    margin-bottom: 12px;
 }
 .change-profile-picture:hover {
     background: var(--fancy-blue-hover);
     border: 1px solid var(--fancy-blue-hover);
+}
+.delete-this-account:hover {
+    background: var(--fancy-red);
+    border: 1px solid var(--fancy-red-hover);
 }
 .edit-profile-section {
     padding: 16px;
