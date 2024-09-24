@@ -35,13 +35,20 @@
     align-items: center;
 }
 .profile-user-info-section-1 >:nth-child(2) {
-    padding: 12px 8px;
+    padding: 12px 16px;
     border-radius: 8px;
     background: var(--secondary);
     cursor: pointer;
 }
 .profile-user-info-section-1 >:nth-child(2):hover {
-    background: cornflowerblue;
+    background: var(--fancy-blue);
+}
+.profile-user-info-section-1 .follow-user{
+    background: var(--fancy-blue);
+    padding: 12px 36px;
+}
+.profile-user-info-section-1 .follow-user:hover {
+    background: var(--fancy-blue-hover);
 }
 .profile-user-info-section-2 >:nth-child(1), .profile-user-info-section-2>:nth-child(2) {
     margin-right: 16px;

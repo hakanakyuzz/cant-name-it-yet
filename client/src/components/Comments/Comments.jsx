@@ -19,9 +19,9 @@ const Comments = () => {
                     </Link>
                     <div className='commenter-info-container'>
                         <div className="commenter-info-inner-container">
-                            <Link to={`/profile`}>
+                            <Link to={`/johnwick`}>
                                 <span>
-                                    {'hakanakyuz2'}
+                                    {'johnwick '}
                                 </span>
                             </Link>
                             <span>

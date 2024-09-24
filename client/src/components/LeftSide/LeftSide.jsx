@@ -69,7 +69,7 @@ const LeftSide = () => {
                         <span>Create</span>
                     </div>
                     <div className={`left-side-profile-picture-container ${isMessagePage ? 'left-side-profile-picture-container-message' : ''}`}>
-                        <Link to={`/profile`} className='left-side-profile-picture'>
+                        <Link to={`/hakanakyuz`} className='left-side-profile-picture'>
                             PP
                         </Link>
                     </div>

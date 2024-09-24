@@ -21,8 +21,8 @@ const CommentOnPost = ({ closeCommentOnPost }) => {
                         </Link>
                         <div className='comment-on-post-info-container'>
                             <div className='comment-on-post-profile-nickname'>
-                                <Link to={`/profile`}>
-                                    <span>{'hakanakyuz1'}</span>
+                                <Link to={`/hakanakyuz`}>
+                                    <span>{'hakanakyuz'}</span>
                                 </Link>
                                 <span>
                                     {'In linguistics and grammar, a sentence is a linguistic expression. In linguistics and grammar, a sentence is a linguistic expression'}

@@ -11,8 +11,8 @@ const Replies = () => {
                 </Link>
                 <div className="replier-info-container">
                     <div className="replier-info-inner-container">
-                        <Link to={`/profile`}>
-                            <span>{'hakanakyuz2'}</span>
+                        <Link to={`/hakanakyuz`}>
+                            <span>{'hakanakyuz'}</span>
                         </Link>
                         <span>
                             {'In linguistics and grammar, a sentence is a linguistic expression'}

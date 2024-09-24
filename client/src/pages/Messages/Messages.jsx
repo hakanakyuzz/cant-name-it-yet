@@ -20,7 +20,7 @@ const Messages = () => {
         <section className="messages-section">
             <div className='messages-container'>
                 <div className="user-container">
-                    <span>hakanakyuz</span>
+                    <span>{'hakanakyuz'}</span>
                     <RiSendPlaneLine onClick={handleToggleCreateNewMessage}/>
                 </div>
                 {isNewMessageVisible && <NewMessage closeNewMessage={handleToggleCreateNewMessage} />}
@@ -29,8 +29,8 @@ const Messages = () => {
                         <div className='message-user-info-container' onClick={handleMessageOpen}>
                             <span>PP</span>
                             <div className='messages-info-container'>
-                                <span>hakanakyuz</span>
-                                <span>hello world! ....</span>
+                                <span>{'johnwick'}</span>
+                                <span>{'hello world! ....'}</span>
                             </div>
                         </div>
                     </div>

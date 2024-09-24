@@ -4,6 +4,7 @@ import {CiHeart} from "react-icons/ci";
 import {LiaShareSolid} from "react-icons/lia";
 import CommentOnPost from "../CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
+import {Link} from "react-router-dom";
 
 
 const Post = () => {
@@ -21,7 +22,7 @@ const Post = () => {
                     <LiaShareSolid/>
                 </div>
                 <div className='post-owner'>
-                    <span>hakanakyuz</span> In linguistics and grammar, a sentence is a linguistic expression
+                    <Link to={'/hakanakyuz'}>{'hakanakyuz'}</Link> {'In linguistics and grammar, a sentence is a linguistic expression'}
                 </div>
                 <div className='post-comment-container' onClick={toggleCommentOnPostVisible}>
                     view all <span>{70}</span> comments

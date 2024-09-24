@@ -8,11 +8,11 @@ const UserInfo = () => {
 
     return (
         <div className='user-info-container'>
-            <Link to={`/profile`} className='profile-picture-container'>
+            <Link to={`/hakanakyuz`} className='profile-picture-container'>
                 PP
             </Link>
             <div className='info-container'>
-                <Link to={`/profile`} className = {`profile-nickname ${isMessage ? 'profile-nickname-message-open' : ''} `}>
+                <Link to={`/hakanakyuz`} className = {`profile-nickname ${isMessage ? 'profile-nickname-message-open' : ''} `}>
                     hakanakyuz
                 </Link>
                 <span className={`${isMessage ? 'profile-name-message-open' : ''}`}>Hakan Akyüz</span>

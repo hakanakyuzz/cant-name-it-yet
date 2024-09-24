@@ -1,10 +1,14 @@
 import './Profile.css'
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import CommentOnPost from "../../components/CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 
 const Profile = () => {
     const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
+
+    const location = useLocation()
+    const currentPath = location.pathname
+    const isUserProfile= currentPath === '/hakanakyuz'
 
     return (
         <div className='profile-container'>
@@ -14,8 +18,13 @@ const Profile = () => {
                 </div>
                 <div className='profile-user-info-container'>
                     <div className='profile-user-info-section-1'>
-                        <span>hakanakyuz</span>
-                        <Link to={`/edit-profile`}>Edit Profile</Link>
+                        <span>{currentPath.replace(/^\/+/, '')}</span>
+                        {isUserProfile ? (
+                            <Link to={`/edit-profile`}>Edit Profile</Link>
+                        ) : (
+                            <div className='follow-user'>Follow</div>
+                        )}
+
                     </div>
                     <div className='profile-user-info-section-2'>
                         <span>13 Posts</span>
