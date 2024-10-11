@@ -27,7 +27,7 @@
     margin-bottom: 10px;
 }
 .like-share-container > *:hover {
-    fill: var(--nickaname);
+    fill: var(--nickname);
     cursor: pointer;
 }
 .post-owner > span:hover {

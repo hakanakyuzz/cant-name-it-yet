@@ -4,7 +4,7 @@
     margin-bottom: 100px;
 }
 .footer-container ul li, .footer-container span {
-    color: var(--nickaname);
+    color: var(--nickname);
     font-size: 13px;
 }
 .footer-container ul {

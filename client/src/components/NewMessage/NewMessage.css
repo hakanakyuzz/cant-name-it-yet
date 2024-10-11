@@ -121,7 +121,7 @@
     height: 50px;
     margin-right: 8px;
     border-radius: 50%;
-    background: var(--nickaname);
+    background: var(--nickname);
 }
 .new-message-info-container, .new-message-info-container > * {
     background: transparent;

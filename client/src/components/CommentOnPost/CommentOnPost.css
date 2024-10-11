@@ -64,7 +64,7 @@
 .comment-on-post-info-container > span {
     margin-top: 8px;
     font-weight: lighter;
-    color: var(--nickaname);
+    color: var(--nickname);
 }
 .comment-on-post-profile-nickname {
     margin-top: 4px;
@@ -109,7 +109,7 @@
     color: var(--fancy-blue-hover);
 }
 .comment-on-post-post input::placeholder {
-    color: var(--nickaname);
+    color: var(--nickname);
     font-weight: normal;
 }
 

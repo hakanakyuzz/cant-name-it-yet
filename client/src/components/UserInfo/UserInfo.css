@@ -25,7 +25,7 @@
     background: transparent;
 }
 .info-container > span {
-    color: var(--nickaname);
+    color: var(--nickname);
     white-space: nowrap;
     background: transparent;
 }

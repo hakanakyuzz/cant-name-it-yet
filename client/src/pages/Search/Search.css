@@ -11,12 +11,12 @@
     outline: none;
     width: 100%;
     height: 40px;
-    border: 1px solid var(--nickaname);
+    border: 1px solid var(--nickname);
     border-radius: 32px;
     padding: 0 40px 0 12px
 }
 .search-container input::placeholder {
-    color: var(--nickaname);
+    color: var(--nickname);
     font-weight: normal;
 }
 .clear-term {
@@ -26,7 +26,7 @@
     border: none;
     font-size: 24px;
     outline: none;
-    color: var(--nickaname);
+    color: var(--nickname);
     cursor: pointer;
     background: var(--secondary);
     width: 24px;

@@ -57,7 +57,7 @@
     padding: 0 12px;
 }
 .messages-info-container >:nth-child(2) {
-    color: var(--nickaname);
+    color: var(--nickname);
 }
 
 @media (max-width: 700px) {

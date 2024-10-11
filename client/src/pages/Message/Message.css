@@ -94,7 +94,7 @@
     outline: none;
     width: 100%;
     height: 40px;
-    border: 1px solid var(--nickaname);
+    border: 1px solid var(--nickname);
     border-radius: 32px;
     padding: 0 40px 0 12px;
 }
