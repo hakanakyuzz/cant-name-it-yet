@@ -4,16 +4,19 @@ import {CiHeart} from "react-icons/ci";
 import {useState} from "react";
 import Replies from "../Replies/Replies.jsx";
 import {BsThreeDots} from "react-icons/bs";
-import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 import DeleteComment from "../DeleteComment/DeleteComment.jsx";
 
 const Comments = () => {
     const [showReplies, setShowReplies] = useState(false)
+    const [isDeleteCommentVisible, setDeleteCommentVisible] = useState(false)
+
     const handleShowReplies = () => {
         setShowReplies(!showReplies)
     }
 
-    const [isDeleteCommentVisible, toggleDeleteCommentVisible] = useToggleVisibility(false)
+    const toggleDeleteCommentVisible = () => {
+        setDeleteCommentVisible(!isDeleteCommentVisible)
+    }
 
     return (
         <div className='comments-container'>

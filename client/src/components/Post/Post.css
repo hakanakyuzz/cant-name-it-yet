@@ -33,10 +33,16 @@
 .post-owner > span:hover {
     cursor: pointer;
 }
-
 .post-comment-container {
     margin-top: 20px;
     cursor: pointer;
+    display: inline-block;
+}
+.post-comment-container > div {
+    color: var(--nickname);
+}
+.comment-counter {
+    color: var(--nickname);
 }
 
 @media(max-width: 500px) {
