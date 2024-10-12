@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--semi-transparent);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,22 +39,20 @@
     padding: 10px;
     margin-top: 20px;
     background: transparent;
-    color: white;
     border: none;
     border-radius: 5px;
     resize: none;
     outline: none;
 }
 .share-btn {
-    background-color: cornflowerblue;
-    color: white;
+    background-color: var(--fancy-blue);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .share-btn:hover {
-    background-color: #3b7bd4;
+    background-color: var(--fancy-blue-hover);
 }
 .close-btn {
     background: transparent;

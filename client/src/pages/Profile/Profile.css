@@ -12,7 +12,7 @@
     flex-shrink: 0;
     width: 150px;
     height: 150px;
-    background: #737373;
+    background: var(--nickname);
     border-radius: 50%;
     display: flex;
     align-items: center;

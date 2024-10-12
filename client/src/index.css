@@ -7,6 +7,8 @@
     --fancy-blue-hover: #2d5cb1;
     --fancy-red: #d80b0b;
     --fancy-red-hover: #d51717;
+    --semi-transparent: rgba(0, 0, 0, 0.5);
+    --basic-white: white;
 }
 
 * {

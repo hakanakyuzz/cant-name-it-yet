@@ -5,10 +5,14 @@ import {LiaShareSolid} from "react-icons/lia";
 import CommentOnPost from "../CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
 
 
 const Post = () => {
     const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
+    useEffect(() => {
+        isCommentOnPostVisible ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
+    }, [isCommentOnPostVisible]);
 
     return (
         <div className='post-container'>

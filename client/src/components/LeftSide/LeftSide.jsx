@@ -64,7 +64,8 @@ const LeftSide = () => {
                         <span>Messages</span>
                     </Link>
                     <div className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}
-                         onClick={handleToggleCreateField}>
+                         onClick={handleToggleCreateField}
+                    >
                         <IoCreateOutline/>
                         <span>Create</span>
                     </div>

@@ -15,7 +15,7 @@
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    background: #737373;
+    background: var(--nickname);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -25,10 +25,26 @@
 .comments-info-container {
     margin-top: 4px;
     margin-bottom: 8px;
+    display: flex;
 }
+.comments-info-container .three-dots {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+    cursor: pointer;
+    fill: var(--nickname);
+}
+.comments-info-container:hover .three-dots {
+    opacity: 1;
+    visibility: visible;
+}
+
 .comments-info-container > span {
     font-weight: lighter;
-    color: var(--nickaname);
+    color: var(--nickname);
     margin-inline-end: 8px;
     margin-top: 8px;
     cursor: pointer;
@@ -39,7 +55,7 @@
     margin-left: 8px;
 }
 .comments-like:hover {
-    fill: var(--nickaname);
+    fill: var(--nickname);
     cursor: pointer;
 }
 .view-replies > span {

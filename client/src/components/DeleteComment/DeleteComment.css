@@ -1,0 +1,34 @@
+.delete-comment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--semi-transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+.delete-comment-modal-content {
+    background: #222222;
+    border-radius: 10px;
+    max-width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 480px;
+}
+.delete-comment-modal-content > button {
+    background: transparent;
+    border: none;
+    padding: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+.delete-comment-modal-content>:nth-child(1) {
+    border-bottom: 1px solid var(--secondary);
+    color: var(--fancy-red);
+}

@@ -56,7 +56,7 @@
 .sends-from-user > span {
     width: 32px;
     height: 32px;
-    background: #737373;
+    background: var(--nickname);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@
 }
 .from-user {
     align-self: flex-end;
-    background: cornflowerblue;
+    background: var(--fancy-blue);
     padding: 12px 8px;
 }
 .from-user > span {
@@ -101,16 +101,16 @@
 .send-container > span {
     position: fixed;
     right: 32px;
-    color: cornflowerblue;
+    color: var(--fancy-blue);
     padding: 0 12px;
     border-radius: 32px;
 }
 .send-container > span:hover {
-    color: white;
+    color: var(--basic-white);
     cursor: pointer;
 }
 .send-container input::placeholder {
-    color: #fff;
+    color: var(--basic-white);
     font-weight: normal;
 }
 

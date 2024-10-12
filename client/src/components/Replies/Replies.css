@@ -9,7 +9,7 @@
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    background: #737373;
+    background: var(--nickname);
     border-radius: 50%;
     display: flex;
     align-items: center;

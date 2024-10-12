@@ -25,7 +25,7 @@
 .information-model-header > * {
     background: transparent;
     padding: 4px 8px;
-    color: red;
+    color: var(--fancy-red);
     width: 100%;
     border-radius: 4px;
     font-size: 20px;

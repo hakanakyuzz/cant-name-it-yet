@@ -1,5 +1,5 @@
 import './CreatePost.css'
-import {useState} from "react";
+import { useState } from "react";
 
 const CreatePost = ({ closeModal }) => {
     const [postContent, setPostContent] = useState('')

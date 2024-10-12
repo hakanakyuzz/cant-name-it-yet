@@ -30,7 +30,7 @@
 .more-model-header > * {
     background: transparent;
     padding: 12px;
-    color: red;
+    color: var(--fancy-red);
     width: 100%;
     border-radius: 6px;
 }
