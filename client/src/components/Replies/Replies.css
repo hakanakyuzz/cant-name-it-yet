@@ -2,9 +2,11 @@
     margin-top: 20px;
     margin-left: 56px;
 }
+
 .reply {
     display: flex;
 }
+
 .replies-profile-picture-container {
     flex-shrink: 0;
     width: 40px;
@@ -16,9 +18,28 @@
     justify-content: center;
     margin-right: 16px;
 }
+
 .replies-info-container {
     margin-top: 4px;
+    display: flex;
 }
+
+.replies-info-container .three-dots-reply {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+    cursor: pointer;
+    fill: var(--nickname);
+}
+
+.replies-info-container:hover .three-dots-reply {
+    opacity: 1;
+    visibility: visible;
+}
+
 .replies-info-container > span {
     font-weight: lighter;
     color: var(--nickname);
@@ -26,11 +47,13 @@
     margin-top: 8px;
     cursor: pointer;
 }
+
 .replies-like {
     font-size: 20px;
     flex-shrink: 0;
     margin-left: 8px;
 }
+
 .replies-like:hover {
     fill: var(--nickname);
     cursor: pointer;

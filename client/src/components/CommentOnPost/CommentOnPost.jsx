@@ -7,7 +7,7 @@ const CommentOnPost = ({ closeCommentOnPost }) => {
     const [commentTerm, setCommentTerm] = useState('')
 
     return (
-        <div className="comment-on-post-modal-overlay" onClick={closeCommentOnPost}>
+        <div className="semi-background-modal-overlay" onClick={closeCommentOnPost}>
             <div className="comment-on-post-modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="comment-on-post-left-side">
                     <div className='comment-on-post-content-container'>

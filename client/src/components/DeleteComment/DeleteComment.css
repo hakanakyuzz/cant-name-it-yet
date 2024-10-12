@@ -1,15 +1,3 @@
-.delete-comment-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: var(--semi-transparent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-}
 .delete-comment-modal-content {
     background: #222222;
     border-radius: 10px;
@@ -31,4 +19,7 @@
 .delete-comment-modal-content>:nth-child(1) {
     border-bottom: 1px solid var(--secondary);
     color: var(--fancy-red);
+}
+.delete-comment-modal-content>:nth-child(2) {
+    border-bottom: 1px solid var(--secondary);
 }

@@ -1,8 +1,17 @@
 import './Replies.css'
 import {Link} from "react-router-dom";
 import {CiHeart} from "react-icons/ci";
+import {BsThreeDots} from "react-icons/bs";
+import DeleteComment from "../DeleteComment/DeleteComment.jsx";
+import {useState} from "react";
 
 const Replies = () => {
+    const [isDeleteCommentVisible, setDeleteCommentVisible] = useState(false)
+
+    const toggleDeleteCommentVisible = () => {
+        setDeleteCommentVisible(!isDeleteCommentVisible)
+    }
+
     return (
         <div className="replies-container">
             <div className="reply">
@@ -22,6 +31,15 @@ const Replies = () => {
                         <span>{'7h'}</span>
                         <span>{3} Like</span>
                         <span>Reply</span>
+                        <div>
+                            <BsThreeDots
+                                className='three-dots-reply'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteCommentVisible &&
+                                <DeleteComment closeModal={toggleDeleteCommentVisible}/>
+                            }
+                        </div>
                     </div>
                 </div>
                 <CiHeart className='replies-like'/>
