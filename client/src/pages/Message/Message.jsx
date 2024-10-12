@@ -3,6 +3,8 @@ import UserInfo from "../../components/UserInfo/UserInfo.jsx";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import {useEffect, useRef, useState} from "react";
 import Information from "../../components/Information/Information.jsx";
+import {BsThreeDotsVertical} from "react-icons/bs";
+import DeleteMessage from "../../components/DeleteMessage/DeleteMessage.jsx";
 
 const Message = () => {
     const chatContainerRef = useRef(null)
@@ -17,6 +19,11 @@ const Message = () => {
         setInformationVisible(!isInformationVisible)
     }
 
+    const [isDeleteMessageVisible, setDeleteMessageVisible] = useState(false)
+    const toggleDeleteCommentVisible = () => {
+        setDeleteMessageVisible(!isDeleteMessageVisible)
+    }
+
     return (
         <div className='message-container'>
             <div className="message-top">
@@ -28,11 +35,22 @@ const Message = () => {
             </div>
             <div className="chat-container" ref={chatContainerRef}>
                 <div className='sends'>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-1
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -42,11 +60,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-3
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -56,11 +85,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-5
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -77,11 +117,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-3
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -91,11 +142,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-5
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -112,11 +174,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-3
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>
@@ -126,11 +199,22 @@ const Message = () => {
                             sends-from-user
                         </div>
                     </div>
-                    <div className='sends-from-user from-other'>
-                        <span>PP</span>
-                        <div className='sends-from-user-message'>
-                            sends-from-other-message-5
-                            sends-from-user
+                    <div className="send">
+                        <div className='other-pp'>pp</div>
+                        <div className='sends-from-user from-other'>
+                            <div className='sends-from-user-message'>
+                                sends-from-other-message-1
+                                sends-from-user
+                            </div>
+                        </div>
+                        <div>
+                            <BsThreeDotsVertical
+                                className='message-three-dots'
+                                onClick={toggleDeleteCommentVisible}
+                            />
+                            {isDeleteMessageVisible && (
+                                <DeleteMessage closeModal={toggleDeleteCommentVisible}/>
+                            )}
                         </div>
                     </div>
                     <div className='sends-from-user from-user'>

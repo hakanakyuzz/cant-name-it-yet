@@ -1,4 +1,4 @@
-.delete-comment-modal-content {
+.delete-message-modal-content {
     background: #222222;
     border-radius: 10px;
     max-width: 90%;
@@ -10,7 +10,7 @@
     width: 480px;
 }
 
-.delete-comment-modal-content > button {
+.delete-message-modal-content > button {
     background: transparent;
     border: none;
     padding: 20px;
@@ -18,11 +18,7 @@
     cursor: pointer;
 }
 
-.delete-comment-modal-content>:nth-child(1) {
+.delete-message-modal-content>:nth-child(1) {
     border-bottom: 1px solid var(--secondary);
     color: var(--fancy-red);
-}
-
-.delete-comment-modal-content>:nth-child(2) {
-    border-bottom: 1px solid var(--secondary);
 }

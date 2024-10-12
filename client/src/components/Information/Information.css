@@ -9,11 +9,13 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0);
 }
+
 .information-modal-content {
     background: #222222;
     border-radius: 8px;
     margin-top: 64px;
 }
+
 .information-model-header {
     padding: 8px;
     display: flex;
@@ -22,14 +24,17 @@
     align-items: flex-start;
     background: transparent;
 }
+
 .information-model-header > * {
     background: transparent;
     padding: 4px 8px;
     color: var(--fancy-red);
     width: 100%;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
+
 .information-model-header > *:hover {
     background: var(--secondary);
     cursor: pointer;
