@@ -5,6 +5,7 @@
     width: 100%;
     background: transparent;
 }
+
 .profile-picture-container {
     flex-shrink: 0;
     width: 50px;
@@ -15,15 +16,18 @@
     align-items: center;
     justify-content: center;
 }
+
 .info-container {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
     background: transparent;
 }
+
 .profile-nickname {
     background: transparent;
 }
+
 .info-container > span {
     color: var(--nickname);
     white-space: nowrap;
@@ -34,6 +38,7 @@
     .profile-nickname-message-open {
         display: none;
     }
+
     .profile-name-message-open {
         display: none;
     }

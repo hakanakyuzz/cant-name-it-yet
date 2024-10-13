@@ -11,6 +11,7 @@
     align-items: flex-end;
     justify-content: flex-start;
 }
+
 .more-modal-content {
     background: #222222;
     padding: 0 8px;
@@ -18,6 +19,7 @@
     width: 300px;
     max-width: 90%;
 }
+
 .more-model-header {
     padding: 8px 0;
     display: flex;
@@ -27,6 +29,7 @@
     background: transparent;
     cursor: pointer;
 }
+
 .more-model-header > * {
     background: transparent;
     padding: 12px;
@@ -34,6 +37,7 @@
     width: 100%;
     border-radius: 6px;
 }
+
 .more-model-header > *:hover {
     background: var(--secondary);
 }
@@ -47,6 +51,7 @@
         align-items: flex-start;
         justify-content: flex-end;
     }
+
     .more-modal-content {
         border-radius: 12px 0 12px 12px;
     }

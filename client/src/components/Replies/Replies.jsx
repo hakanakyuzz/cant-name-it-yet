@@ -1,9 +1,9 @@
 import './Replies.css'
-import {Link} from "react-router-dom";
-import {CiHeart} from "react-icons/ci";
-import {BsThreeDots} from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { CiHeart } from "react-icons/ci";
+import { BsThreeDots } from "react-icons/bs";
 import DeleteComment from "../DeleteComment/DeleteComment.jsx";
-import {useState} from "react";
+import { useState } from "react";
 
 const Replies = () => {
     const [isDeleteCommentVisible, setDeleteCommentVisible] = useState(false)

@@ -1,9 +1,9 @@
 import './Message.css'
 import UserInfo from "../../components/UserInfo/UserInfo.jsx";
-import {IoIosInformationCircleOutline} from "react-icons/io";
-import {useEffect, useRef, useState} from "react";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
 import Information from "../../components/Information/Information.jsx";
-import {BsThreeDotsVertical} from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import DeleteMessage from "../../components/DeleteMessage/DeleteMessage.jsx";
 
 const Message = () => {

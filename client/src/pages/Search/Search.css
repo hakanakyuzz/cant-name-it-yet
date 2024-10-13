@@ -7,6 +7,7 @@
     max-width: 692px;
     position: relative;
 }
+
 .search-container > input {
     outline: none;
     width: 100%;
@@ -15,10 +16,12 @@
     border-radius: 32px;
     padding: 0 40px 0 12px
 }
+
 .search-container input::placeholder {
     color: var(--nickname);
     font-weight: normal;
 }
+
 .clear-term {
     position: absolute;
     right: 12px;

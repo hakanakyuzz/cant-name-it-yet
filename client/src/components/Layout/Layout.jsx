@@ -1,5 +1,5 @@
 import './Layout.css'
-import {Outlet, useLocation} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Footer/Footer.jsx";
 import LeftSide from "../LeftSide/LeftSide.jsx";
 import RightSide from "../RightSide/RightSide.jsx";

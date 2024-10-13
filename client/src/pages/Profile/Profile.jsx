@@ -1,5 +1,5 @@
 import './Profile.css'
-import {Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CommentOnPost from "../../components/CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
 
@@ -32,7 +32,7 @@ const Profile = () => {
                         <span>317 Followers</span>
                     </div>
                     <div className='profile-user-info-section-3'>
-                        <span>Hakan Akyuz</span>
+                        <Link to={'/login'}>Hakan Akyuz</Link>
                     </div>
                 </div>
             </div>

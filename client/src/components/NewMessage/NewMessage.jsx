@@ -1,5 +1,5 @@
 import './NewMessage.css'
-import {useState} from "react";
+import { useState } from "react";
 
 const NewMessage = ({closeNewMessage}) => {
     const users = ['hakanakyuz', 'johndoe', 'janesmith', 'user123', 'cooluser', 'chatguy']
@@ -27,7 +27,7 @@ const NewMessage = ({closeNewMessage}) => {
     }
 
     return (
-        <div className="new-message-modal-overlay" onClick={closeNewMessage}>
+        <div className="semi-background-modal-overlay" onClick={closeNewMessage}>
             <div
                 className="new-message-modal-content"
                 onClick={(e) => e.stopPropagation()}

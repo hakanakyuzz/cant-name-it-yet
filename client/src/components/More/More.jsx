@@ -1,6 +1,6 @@
 import './More.css'
 import UserInfo from "../UserInfo/UserInfo.jsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const More = ({closeModal}) => {
     return (

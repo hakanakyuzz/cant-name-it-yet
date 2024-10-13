@@ -1,5 +1,5 @@
 import './DeletePost.css'
-import {useState} from "react";
+import { useState } from "react";
 import CreatePost from "../CreatePost/CreatePost.jsx";
 
 const DeletePost = ({ closeModal }) => {

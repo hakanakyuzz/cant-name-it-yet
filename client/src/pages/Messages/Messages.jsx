@@ -1,7 +1,7 @@
 import './Messages.css'
-import {RiSendPlaneLine} from "react-icons/ri";
-import {Outlet, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import { RiSendPlaneLine } from "react-icons/ri";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import NewMessage from "../../components/NewMessage/NewMessage.jsx";
 
 const Messages = () => {

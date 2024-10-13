@@ -9,7 +9,7 @@ const CreatePost = ({ closeModal }) => {
     }
     
     return (
-        <div className="modal-overlay" onClick={closeModal}>
+        <div className="semi-background-modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="model-header">
                     <span>Create New Post</span>

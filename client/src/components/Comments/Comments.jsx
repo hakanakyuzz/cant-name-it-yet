@@ -1,9 +1,9 @@
 import './Comments.css'
-import {Link} from "react-router-dom";
-import {CiHeart} from "react-icons/ci";
-import {useState} from "react";
+import { Link } from "react-router-dom";
+import { CiHeart } from "react-icons/ci";
+import { useState } from "react";
 import Replies from "../Replies/Replies.jsx";
-import {BsThreeDots} from "react-icons/bs";
+import { BsThreeDots } from "react-icons/bs";
 import DeleteComment from "../DeleteComment/DeleteComment.jsx";
 
 const Comments = () => {

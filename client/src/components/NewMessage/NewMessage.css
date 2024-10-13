@@ -1,15 +1,3 @@
-.new-message-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background: var(--semi-transparent);
-    z-index: 99;
-}
 .new-message-modal-content {
     display: flex;
     flex-direction: column;
@@ -21,9 +9,11 @@
     border-radius: 10px;
     background: var(--dark-grey);
 }
+
 .new-message-modal-inner-overlay {
     background: transparent;
 }
+
 .new-message-model-header {
     display: flex;
     justify-content: space-between;
@@ -31,10 +21,12 @@
     padding: 8px;
     background: transparent;
 }
+
 .new-message-model-header > span {
     padding: 10px 28px;
     background: transparent;
 }
+
 .new-message-close-btn {
     border: none;
     cursor: pointer;
@@ -42,6 +34,7 @@
     margin: 0 20px;
     background: transparent;
 }
+
 .new-message-modal-inner-overlay > form {
     display: flex;
     align-items: center;
@@ -51,6 +44,7 @@
     border-top: 1px solid var(--secondary);
     border-bottom: 1px solid var(--secondary);
 }
+
 .selected-user {
     display: flex;
     align-items: center;
@@ -63,12 +57,15 @@
     border-radius: 16px;
     cursor: pointer;
 }
+
 .selected-user:hover {
     background: var(--fancy-blue-hover);
 }
+
 .selected-user > span {
     background: transparent;
 }
+
 .selected-user-close-btn {
     display: flex;
     align-items: center;
@@ -81,6 +78,7 @@
     cursor: pointer;
     background: transparent;
 }
+
 .new-message-input-area {
     width: 100%;
     padding: 16px;
@@ -89,6 +87,7 @@
     outline: none;
     background: transparent;
 }
+
 .user-suggestions {
     width: 100%;
     max-height: 448px;
@@ -97,14 +96,17 @@
     list-style: none;
     background: transparent;
 }
+
 .user-suggestion-item {
     background: transparent;
     padding: 12px;
     cursor: pointer;
 }
+
 .user-suggestion-item:hover {
     background: var(--secondary);
 }
+
 .new-message-user-info-container {
     display: flex;
     align-items: center;
@@ -112,6 +114,7 @@
     padding: 0 12px;
     background: transparent;
 }
+
 .new-message-profile-picture-container {
     display: flex;
     align-items: center;
@@ -123,14 +126,17 @@
     border-radius: 50%;
     background: var(--nickname);
 }
+
 .new-message-info-container, .new-message-info-container > * {
     background: transparent;
 }
+
 .no-user-found {
     padding: 12px 36px;
     color: var(--secondary);
     background: transparent;
 }
+
 .new-message-share-btn {
     padding: 10px 20px;
     margin: 0 28px;
@@ -139,13 +145,16 @@
     background-color: var(--fancy-blue);
     cursor: pointer;
 }
+
 .new-message-share-btn:hover {
     background: var(--fancy-blue-hover);
 }
+
 .new-message-share-btn-disabled {
     background: var(--secondary);
     cursor: not-allowed;
 }
+
 .new-message-share-btn-disabled:hover {
     background: var(--secondary);
 }
@@ -154,9 +163,11 @@
     .new-message-modal-content {
         height: 480px;
     }
+
     .new-message-close-btn {
         top: 70px;
     }
+
     .user-suggestions {
         max-height: 252px;
     }
