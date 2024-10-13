@@ -51,8 +51,8 @@ const LeftSide = () => {
                         <span>Home</span>
                     </Link>
                     <Link to={`/notifications`} className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
-                        <IoIosNotificationsOutline className='notification-element'/>
-                        <GoDotFill className='notification-red-dot' />
+                        <GoDotFill className={`notification-red-dot ${isMessagePage ? 'notification-red-dot-message' : ''}`} />
+                        <IoIosNotificationsOutline />
                         <span>Notifications</span>
                     </Link>
                     <Link to={`/search`} className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
