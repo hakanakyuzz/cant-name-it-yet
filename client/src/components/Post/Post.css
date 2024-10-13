@@ -5,10 +5,23 @@
     align-items: center;
     margin-top: 16px;
 }
+
 .post {
     max-width: 440px;
     margin-top: 64px;
 }
+
+.post-owner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-owner-container>:nth-child(2) {
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .content-container {
     aspect-ratio: 0.8;
     margin-top: 10px;
@@ -20,27 +33,33 @@
     align-items: center;
     justify-content: center;
 }
+
 .like-share-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
+
 .like-share-container > *:hover {
     fill: var(--nickname);
     cursor: pointer;
 }
+
 .post-owner > span:hover {
     cursor: pointer;
 }
+
 .post-comment-container {
     margin-top: 20px;
     cursor: pointer;
     display: inline-block;
 }
+
 .post-comment-container > div {
     color: var(--nickname);
 }
+
 .comment-counter {
     color: var(--nickname);
 }

@@ -1,11 +1,11 @@
 import './LeftSide.css'
-import { GoHome } from "react-icons/go";
-import {IoIosNotificationsOutline} from "react-icons/io";
-import {IoCreateOutline, IoSearchOutline} from "react-icons/io5";
-import {BiMessageSquareDetail} from "react-icons/bi";
-import {Link, useLocation} from "react-router-dom";
-import {RxHamburgerMenu, RxVercelLogo} from "react-icons/rx";
-import {useEffect, useState} from "react";
+import { GoDotFill, GoHome } from "react-icons/go";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoCreateOutline, IoSearchOutline } from "react-icons/io5";
+import { BiMessageSquareDetail } from "react-icons/bi";
+import { Link, useLocation } from "react-router-dom";
+import { RxHamburgerMenu, RxVercelLogo } from "react-icons/rx";
+import { useEffect, useState } from "react";
 import CreatePost from "../CreatePost/CreatePost.jsx";
 import More from "../More/More.jsx";
 
@@ -50,9 +50,9 @@ const LeftSide = () => {
                         <GoHome/>
                         <span>Home</span>
                     </Link>
-                    <Link to={`/notifications`}
-                          className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
+                    <Link to={`/notifications`} className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>
                         <IoIosNotificationsOutline className='notification-element'/>
+                        <GoDotFill className='notification-red-dot' />
                         <span>Notifications</span>
                     </Link>
                     <Link to={`/search`} className={`nav-container ${isMessagePage ? 'nav-container-message' : ''}`}>

@@ -1,18 +1,32 @@
 import './Post.css'
 import UserInfo from "../UserInfo/UserInfo.jsx";
-import {CiHeart} from "react-icons/ci";
-import {LiaShareSolid} from "react-icons/lia";
+import { CiHeart } from "react-icons/ci";
+import { LiaShareSolid } from "react-icons/lia";
 import CommentOnPost from "../CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { useState } from "react";
+import DeletePost from "../DeletePost/DeletePost.jsx";
 
 const Post = () => {
     const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
+    const [isDeletePostVisible, setDeletePostVisible] = useState(false)
+
+    const toggleDeletePostVisible = () => {
+        setDeletePostVisible(!isDeletePostVisible)
+    }
 
     return (
         <div className='post-container'>
             <div className='post'>
-                <UserInfo/>
+                <div className='post-owner-container'>
+                    <UserInfo/>
+                    <BsThreeDotsVertical onClick={toggleDeletePostVisible}/>
+                    {isDeletePostVisible && (
+                        <DeletePost closeModal={toggleDeletePostVisible}/>
+                    )}
+                </div>
                 <div className='content-container'>
                     Post 1
                 </div>

@@ -1,0 +1,28 @@
+.delete-post-modal-content {
+    background: #222222;
+    border-radius: 10px;
+    max-width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 480px;
+}
+
+.delete-post-modal-content > button {
+    background: transparent;
+    border: none;
+    padding: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.delete-post-modal-content>:nth-child(1) {
+    border-bottom: 1px solid var(--secondary);
+    color: var(--fancy-red);
+}
+
+.delete-post-modal-content>:nth-child(2) {
+    border-bottom: 1px solid var(--secondary);
+}

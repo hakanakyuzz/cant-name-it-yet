@@ -1,7 +1,7 @@
 import './CommentOnPost.css'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Comments from "../Comments/Comments.jsx";
-import {useState} from "react";
+import { useState } from "react";
 
 const CommentOnPost = ({ closeCommentOnPost }) => {
     const [commentTerm, setCommentTerm] = useState('')
