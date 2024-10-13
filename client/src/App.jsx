@@ -9,13 +9,14 @@ import Notifications from "./pages/Notifications/Notifications.jsx";
 import Search from "./pages/Search/Search.jsx";
 import EditProfile from "./pages/EditProfile/EditProfile.jsx";
 import Login from "./pages/Login/Login.jsx";
+import Register from "./pages/Register/Register.jsx";
 
 function App() {
   return (
       <BrowserRouter>
           <Routes>
               <Route path="/login" element={<Login />} />
-              {/*<Route path="/register" element={<Register />} />*/}
+              <Route path="/register" element={<Register />} />
               <Route element={<Layout />}>
                   <Route path="/" element={<Website />} />
                   <Route path="/hakanakyuz" element={<Profile />} />

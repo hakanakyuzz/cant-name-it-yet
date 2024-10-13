@@ -1,6 +1,7 @@
 import './Login.css'
 import Footer from "../../components/Footer/Footer.jsx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [nickname, setNickname] = useState("")
@@ -43,7 +44,7 @@ const Login = () => {
                 </div>
                 <div className='login-forget-container'>
                     <div className='login-forget'>Forget password?</div>
-                    <div className='login-have-account'>Don't have an account? <span>Sign up</span></div>
+                    <div className='login-have-account'>Don't have an account? <Link to='/register'>Sign up</Link></div>
                 </div>
             </div>
             <Footer></Footer>

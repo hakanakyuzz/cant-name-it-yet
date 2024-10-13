@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     height: 100vh;
 }
 
-.login-inner-container {
+.register-inner-container {
     border: 1px solid var(--secondary);
     border-radius: 4px;
     padding: 48px 36px;
@@ -16,28 +16,29 @@
     align-items: center;
     justify-content: space-between;
     width: 400px;
-    height: 480px;
+    height: 520px;
 }
 
-.login-logo {
+.register-logo {
     font-size: 20px;
 }
 
-.login-info-container {
+.register-info-container {
     width: 100%;
+    margin-top: -24px;
 }
 
-.login-info-container > form {
+.register-info-container > form {
     display: flex;
     flex-direction: column;
 }
 
-.login-input-container {
+.register-input-container {
     margin-bottom: 4px;
     width: 100%;
 }
 
-.login-input-container > input {
+.register-input-container > input {
     padding: 12px;
     border-radius: 4px;
     font-size: 16px;
@@ -46,7 +47,7 @@
     width: 100%;
 }
 
-.login-button {
+.register-button {
     padding: 10px;
     background-color: var(--fancy-blue);
     border: none;
@@ -54,37 +55,24 @@
     font-size: 16px;
     cursor: pointer;
     width: 100%;
-    margin-top: 32px;
+    margin-top: 40px;
 }
 
-.login-button:hover {
+.register-button:hover {
     background-color: var(--fancy-blue-hover);
 }
 
-.login-forget-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-forget {
+.register-have-account {
     font-size: 14px;
-    padding: 8px;
-    cursor: pointer;
 }
 
-.login-have-account {
-    font-size: 14px;
-    padding: 8px;
-}
-
-.login-have-account > * {
+.register-have-account > * {
     cursor: pointer;
     color: var(--fancy-blue);
 }
 
 @media (max-width: 500px) {
-    .login-inner-container {
+    .register-inner-container {
         width: 100%;
         border: none;
     }
