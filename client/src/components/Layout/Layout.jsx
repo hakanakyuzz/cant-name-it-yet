@@ -9,9 +9,10 @@ const Layout = () => {
     const currentPath = location.pathname
 
     const hideFooter = ['/messages', '/messages/userId']
-    const hideRightSide = ['/messages', '/johnwick', '/hakanakyuz', '/messages/userId', '/notifications', '/search', '/edit-profile']
+    const hideRightSide = ['/']
+
     const showFooter = !hideFooter.includes(currentPath)
-    const showRightSide =  !hideRightSide.includes(currentPath)
+    const showRightSide =  hideRightSide.includes(currentPath)
 
     return (
         <div className="layout-container">
