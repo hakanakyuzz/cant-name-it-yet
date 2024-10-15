@@ -130,6 +130,28 @@ export const getPostsByUser = async (req, res) => {
     }
 }
 
+export const getPostsByFollowed = async (req, res) => {
+    const userId = req.user.id
+
+    try {
+        const user = await User.findById(userId)
+
+        if (!user)
+            return res.status(400).json({message: 'No user found with the provided user ID!'})
+
+        const following = user.following.map(user => user.toString())
+
+
+        const posts = await Post.find({ author: { $in: following } })
+            .sort({ createdAt: -1 })
+
+        res.status(200).json({ message: 'Posts by followed retrieved successfully!', posts })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: "Post retrieval error: Unable to retrieve the post by followed!", err })
+    }
+}
+
 export const deletePost = async (req, res) => {
     const post = req.resource
 

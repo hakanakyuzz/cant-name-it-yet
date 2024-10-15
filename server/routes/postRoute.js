@@ -9,6 +9,7 @@ import {
     deletePost,
     getComments,
     getPost,
+    getPostsByFollowed,
     getPostsByUser,
     likePost,
     updatePost
@@ -19,6 +20,7 @@ const router = express.Router()
 router.post('/create', authMiddleware, validatePost, createPost)
 router.post('/like/:postId', authMiddleware, likePost, notifyPostLike)
 router.post('/comment/:postId', authMiddleware, validateComment, commentPost, notifyPostComment)
+router.get('/followed', authMiddleware, getPostsByFollowed)
 router.get('/:postId', getPost)
 router.get('/:postId/comments', getComments)
 router.get('/:userId/posts', getPostsByUser)
