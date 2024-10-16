@@ -29,6 +29,10 @@ const LeftSide = () => {
 
     }, [isCreateFieldVisible])
 
+    useEffect(() => {
+        setMoreVisible(false)
+    }, [location])
+
     return (
         <div className='left-side-outer'>
             <div className={`left-side-container ${isMessagePage ? 'left-side-container-message' : ''}`}>
