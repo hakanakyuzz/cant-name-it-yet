@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const More = ({ closeModal }) => {
-    const { handleLogout } = useAuth()
     const navigate = useNavigate()
+    const { handleLogout } = useAuth()
 
     const handleLogoutClick = async () => {
         await handleLogout()

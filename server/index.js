@@ -20,7 +20,7 @@ const app = express()
 
 app.use(rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 100,
+    max: 100000, //update before production
     message: 'Too many requests from this IP, please try again after 15 minutes!',
     headers: true
 }))

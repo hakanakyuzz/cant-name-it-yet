@@ -10,27 +10,30 @@ import Search from "./pages/Search/Search.jsx";
 import EditProfile from "./pages/EditProfile/EditProfile.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
+import { Suspense } from "react";
+import { AuthInitializer } from "./hooks/AuthContext.jsx";
 
 function App() {
-  return (
-      <BrowserRouter>
-          <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route element={<Layout />}>
-                  <Route path="/" element={<Website />} />
-                  <Route path="/hakanakyuz" element={<Profile />} />
-                  <Route path="/johnwick" element={<Profile />} />
-                  <Route path='/messages' element={<Messages />}>
-                      <Route path=':userId' element={<Message />} />
-                  </Route>
-                  <Route path='/notifications' element={<Notifications />} />
-                  <Route path='/search' element={<Search />} />
-                  <Route path='/edit-profile' element={<EditProfile />}></Route>
-              </Route>
-          </Routes>
-      </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <Suspense>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route element={<AuthInitializer><Layout /></AuthInitializer>}>
+                        <Route path="/" element={<Website />} />
+                        <Route path="/:userId" element={<Profile />} />
+                        <Route path='/messages' element={<Messages />}>
+                            <Route path=':userId' element={<Message />} />
+                        </Route>
+                        <Route path='/notifications' element={<Notifications />} />
+                        <Route path='/search' element={<Search />} />
+                        <Route path='/edit-profile' element={<EditProfile />}></Route>
+                    </Route>
+                </Routes>
+            </Suspense>
+        </BrowserRouter>
+    )
 }
 
 export default App

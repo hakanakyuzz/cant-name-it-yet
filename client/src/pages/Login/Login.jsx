@@ -1,16 +1,23 @@
 import './Login.css'
 import Footer from "../../components/Footer/Footer.jsx";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { userLogin } from "../../utils/api.js";
 
 const Login = () => {
-    const [nickname, setNickname] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("Nickname:", nickname)
-        console.log("Password:", password)
+        try {
+            await userLogin(email, password)
+            navigate('/')
+        } catch (err) {
+            console.log(err, 'Login failed. Please check your credentials.')
+        }
     }
 
     return (
@@ -23,9 +30,9 @@ const Login = () => {
                             <input
                                 type="text"
                                 id="nickname"
-                                value={nickname}
-                                onChange={(e) => setNickname(e.target.value)}
-                                placeholder="Username or email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Email"
                                 required
                             />
                         </div>

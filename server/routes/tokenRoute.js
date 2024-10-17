@@ -5,4 +5,4 @@ const router = express.Router()
 
 router.post('/refresh', refreshToken)
 
-export {router as tokenRoute}
+export { router as tokenRoute }

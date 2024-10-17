@@ -24,9 +24,9 @@ export const authMiddleware = async (req, res, next) => {
         if (err.name === 'TokenExpiredError')
             return res.status(401).json({ message: 'Session expired. Please refresh your token or log in again!', err })
          else if (err.name === 'JsonWebTokenError')
-             return res.status(401).json({ message: 'Invalid token. Authorization denied!', err });
+             return res.status(401).json({ message: 'Invalid token. Authorization denied!', err })
         else
-            return res.status(500).json({ message: 'Authentication error: Unable to authenticate the user!', err });
+            return res.status(500).json({ message: 'Authentication error: Unable to authenticate the user!', err })
     }
 }
 
@@ -78,7 +78,7 @@ export const clearCookiesMiddleware = (req, res, next) => {
 
 export const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10,
+    max: 1000, //update before product
     message: 'Too many attempts from this IP, please try again after 15 minutes!',
     headers: true
 })
