@@ -46,27 +46,6 @@ const Profile = () => {
                 <div className='profile-post' onClick={toggleCommentOnPostVisible}>
                     post3
                 </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post4
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post5
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post1
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post2
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post3
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post4
-                </div>
-                <div className='profile-post' onClick={toggleCommentOnPostVisible}>
-                    post5
-                </div>
                 {isCommentOnPostVisible && <CommentOnPost closeCommentOnPost={toggleCommentOnPostVisible} />}
             </div>
         </div>
