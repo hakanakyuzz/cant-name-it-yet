@@ -1,5 +1,4 @@
 import axios from "axios";
-import { setGlobalAccessToken } from "../hooks/AuthContext.jsx";
 
 export const api = axios.create({
     baseURL : "http://localhost:8002/api",
@@ -11,7 +10,7 @@ export const userLogin = async (email, password) => {
         const response = await api.post('/user/login', { email, password })
         const { accessToken } = response.data
 
-        setGlobalAccessToken(accessToken)
+        return accessToken
     } catch (err) {
         console.log('Error during login!', err)
         throw err
@@ -26,6 +25,8 @@ export const userLogout = async (token) => {
                 Authorization: `Bearer ${token}`
             }
         })
+
+        return true
     } catch (err) {
         console.log('Error during logout!', err)
         throw err
@@ -39,9 +40,10 @@ export const tokenRefresh = async () => {
         })
 
         const { accessToken: newAccessToken } = response.data
-        setGlobalAccessToken(newAccessToken)
+
+        return newAccessToken
     } catch (err) {
-        console.log('Error during logout!', err)
+        console.log('Error during token refresh!', err)
         throw err
     }
 }

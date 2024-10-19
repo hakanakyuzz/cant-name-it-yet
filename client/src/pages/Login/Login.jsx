@@ -3,17 +3,21 @@ import Footer from "../../components/Footer/Footer.jsx";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userLogin } from "../../utils/api.js";
+import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Login = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-
+    const { setAccessToken } = useAuth()
     const navigate = useNavigate()
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await userLogin(email, password)
+            const response  = await userLogin(email, password)
+
+            setAccessToken(response)
             navigate('/')
         } catch (err) {
             console.log(err, 'Login failed. Please check your credentials.')

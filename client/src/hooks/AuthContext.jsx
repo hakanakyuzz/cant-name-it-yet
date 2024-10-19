@@ -1,61 +1,39 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { tokenRefresh, userLogout } from "../utils/api.js";
+import { tokenRefresh } from "../utils/api.js";
+import { useLocation } from "react-router-dom";
 
 const AuthContext = createContext(null)
 
-let globalSetAccessToken
-
 export const AuthProvider = ({ children }) => {
     const [accessToken, setAccessToken] = useState(null)
+    const location = useLocation()
 
-    globalSetAccessToken = setAccessToken
-
-    const handleLogout = async () => {
-        //you can create a new variable to store the access token and use it inside logoutUser function
-        try {
-            await userLogout(accessToken)
-        } catch (err) {
-            console.log("Logout failed!", err)
-            return false
-        }
-
-        setAccessToken(null)
-    }
-
-    useEffect(() => {
-        console.log("Access Token Changed:", accessToken)
-    }, [accessToken])
-
-    return (
-        <AuthContext.Provider value={{ accessToken, setAccessToken, handleLogout }}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
-
-export const setGlobalAccessToken = (token) => {
-    if (globalSetAccessToken)
-        globalSetAccessToken(token)
-    else
-        console.error("setGlobalAccessToken is not initialized.")
-}
-
-export const AuthInitializer = ({ children }) => {
     const initializeToken = async () => {
         try {
-            await tokenRefresh()
+            const response = await tokenRefresh()
+
+            setAccessToken(response)
         } catch (err) {
             console.log('Failed to initialize access token!', err)
         }
     }
 
     useEffect(() => {
-        initializeToken()
-            .then(null)
-            .catch((err) => console.log(err))
+        if (location.pathname !== '/login' && location.pathname !== '/register')
+            initializeToken()
+                .then(null)
+                .catch(err => console.log(err))
     }, [])
 
-    return <>{children}</>
+    useEffect(() => {
+        console.log("Access Token Changed:", accessToken)
+    }, [accessToken])
+
+    return (
+        <AuthContext.Provider value={{ accessToken, setAccessToken }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export const useAuth = () => useContext(AuthContext)

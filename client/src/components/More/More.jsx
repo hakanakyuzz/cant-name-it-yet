@@ -1,13 +1,16 @@
 import './More.css'
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/AuthContext.jsx";
+import { userLogout } from "../../utils/api.js";
 
 const More = ({ closeModal }) => {
     const navigate = useNavigate()
-    const { handleLogout } = useAuth()
+
+    const { accessToken, setAccessToken } = useAuth()
 
     const handleLogoutClick = async () => {
-        await handleLogout()
+        await userLogout(accessToken)
+        setAccessToken(null)
         closeModal()
         navigate("/login")
     }

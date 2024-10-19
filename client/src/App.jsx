@@ -11,26 +11,28 @@ import EditProfile from "./pages/EditProfile/EditProfile.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 import { Suspense } from "react";
-import { AuthInitializer } from "./hooks/AuthContext.jsx";
+import { AuthProvider } from "./hooks/AuthContext.jsx";
 
 function App() {
     return (
         <BrowserRouter>
             <Suspense>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route element={<AuthInitializer><Layout /></AuthInitializer>}>
-                        <Route path="/" element={<Website />} />
-                        <Route path="/:userId" element={<Profile />} />
-                        <Route path='/messages' element={<Messages />}>
-                            <Route path=':userId' element={<Message />} />
+                <AuthProvider>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route element={<Layout />}>
+                            <Route path="/" element={<Website />} />
+                            <Route path="/:userId" element={<Profile />} />
+                            <Route path='/messages' element={<Messages />}>
+                                <Route path=':userId' element={<Message />} />
+                            </Route>
+                            <Route path='/notifications' element={<Notifications />} />
+                            <Route path='/search' element={<Search />} />
+                            <Route path='/edit-profile' element={<EditProfile />}></Route>
                         </Route>
-                        <Route path='/notifications' element={<Notifications />} />
-                        <Route path='/search' element={<Search />} />
-                        <Route path='/edit-profile' element={<EditProfile />}></Route>
-                    </Route>
-                </Routes>
+                    </Routes>
+                </AuthProvider>
             </Suspense>
         </BrowserRouter>
     )
