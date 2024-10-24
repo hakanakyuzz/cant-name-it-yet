@@ -30,7 +30,7 @@ export const refreshToken = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         })
 
-        res.status(200).json({ accessToken: newAccessToken })
+        res.status(200).json({ accessToken: newAccessToken, user })
     } catch (err) {
         console.log(err)
         res.status(403).json({ message: 'Token refresh error: Unable to refresh the token!', err })

@@ -2,15 +2,24 @@ import './Profile.css'
 import { Link, useLocation } from "react-router-dom";
 import CommentOnPost from "../../components/CommentOnPost/CommentOnPost.jsx";
 import useToggleVisibility from "../../hooks/useToggleVisibility.jsx";
+import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Profile = () => {
+    const { accessToken } = useAuth()
+
     const [isCommentOnPostVisible, toggleCommentOnPostVisible] = useToggleVisibility(false)
 
     const location = useLocation()
     const currentPath = location.pathname
     const isUserProfile= currentPath === '/hakanakyuz'
 
-    return (
+    if (!accessToken)
+        return (
+            <div>You are not logged in!</div>
+        )
+
+    if (accessToken)
+        return (
         <div className='profile-container'>
             <div className='profile-user-container'>
                 <div className='profile-user-profile-picture' >
@@ -18,7 +27,7 @@ const Profile = () => {
                 </div>
                 <div className='profile-user-info-container'>
                     <div className='profile-user-info-section-1'>
-                        <span>{currentPath.replace(/^\/+/, '')}</span>
+                        <span>user</span>
                         {isUserProfile ? (
                             <Link to={`/edit-profile`}>Edit Profile</Link>
                         ) : (

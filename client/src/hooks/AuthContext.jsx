@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
+    const [userId, setUserId] = useState(null)
     const [accessToken, setAccessToken] = useState(null)
     const location = useLocation()
 
@@ -12,7 +13,8 @@ export const AuthProvider = ({ children }) => {
         try {
             const response = await tokenRefresh()
 
-            setAccessToken(response)
+            setAccessToken(response.newAccessToken)
+            setUserId(response.userId)
         } catch (err) {
             console.log('Failed to initialize access token!', err)
         }
@@ -29,8 +31,12 @@ export const AuthProvider = ({ children }) => {
         console.log("Access Token Changed:", accessToken)
     }, [accessToken])
 
+    useEffect(() => {
+        console.log("User Changed:", userId)
+    }, [userId])
+
     return (
-        <AuthContext.Provider value={{ accessToken, setAccessToken }}>
+        <AuthContext.Provider value={{ accessToken, setAccessToken, userId, setUserId }}>
             {children}
         </AuthContext.Provider>
     )

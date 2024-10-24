@@ -8,9 +8,10 @@ export const api = axios.create({
 export const userLogin = async (email, password) => {
     try {
         const response = await api.post('/user/login', { email, password })
-        const { accessToken } = response.data
+        const { accessToken, user } = response.data
+        const userId = user._id
 
-        return accessToken
+        return { accessToken, userId }
     } catch (err) {
         console.log('Error during login!', err)
         throw err
@@ -36,12 +37,13 @@ export const userLogout = async (token) => {
 export const tokenRefresh = async () => {
     try {
         const response = await api.post('/token/refresh', {}, {
-            withCredentials: true
+
         })
 
-        const { accessToken: newAccessToken } = response.data
+        const { accessToken: newAccessToken, user } = response.data
+        const userId = user._id
 
-        return newAccessToken
+        return { newAccessToken, userId }
     } catch (err) {
         console.log('Error during token refresh!', err)
         throw err

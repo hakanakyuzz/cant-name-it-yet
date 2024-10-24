@@ -6,7 +6,7 @@ import { userLogin } from "../../utils/api.js";
 import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Login = () => {
-    const { setAccessToken } = useAuth()
+    const { setAccessToken, setUserId } = useAuth()
     const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
@@ -16,8 +16,10 @@ const Login = () => {
         e.preventDefault()
         try {
             const response  = await userLogin(email, password)
+            const { accessToken, userId } = response
 
-            setAccessToken(response)
+            setAccessToken(accessToken)
+            setUserId(userId)
             navigate('/')
         } catch (err) {
             console.log(err, 'Login failed. Please check your credentials.')
