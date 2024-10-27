@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Footer/Footer.jsx";
 import LeftSide from "../LeftSide/LeftSide.jsx";
 import RightSide from "../RightSide/RightSide.jsx";
+import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Layout = () => {
     const location = useLocation()
@@ -14,6 +15,9 @@ const Layout = () => {
     const showFooter = !hideFooter.includes(currentPath)
     const showRightSide =  hideRightSide.includes(currentPath)
 
+    const { isAuthenticated } = useAuth()
+
+    if (isAuthenticated)
     return (
         <div className="layout-container">
             <LeftSide/>
@@ -24,6 +28,10 @@ const Layout = () => {
             {showRightSide && <RightSide/>}
         </div>
     )
+    else {
+
+    }
+
 }
 
 export default Layout
