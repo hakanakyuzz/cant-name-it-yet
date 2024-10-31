@@ -56,6 +56,10 @@ export const AuthProvider = ({ children }) => {
         console.log("User Changed:", userId)
     }, [userId])
 
+    useEffect(() => {
+        console.log("User authenticated:", isAuthenticated)
+    }, [isAuthenticated])
+
     return (
         <AuthContext.Provider value={{
             userId,
@@ -63,8 +67,9 @@ export const AuthProvider = ({ children }) => {
             isLoading,
             isError,
             isAuthenticated,
-            setAccessToken,
             setUserId,
+            setAccessToken,
+            setAuthenticated,
             navigate
         }}>
             {!isLoading && children}

@@ -6,7 +6,7 @@ import { userLogin } from "../../utils/api.js";
 import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Login = () => {
-    const { setAccessToken, setUserId } = useAuth()
+    const { setAccessToken, setUserId, setAuthenticated } = useAuth()
     const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
@@ -20,6 +20,7 @@ const Login = () => {
 
             setAccessToken(accessToken)
             setUserId(userId)
+            setAuthenticated(true)
             navigate('/')
         } catch (err) {
             console.log(err, 'Login failed. Please check your credentials.')
