@@ -6,12 +6,13 @@ import { userLogout } from "../../utils/api.js";
 const More = ({ closeModal }) => {
     const navigate = useNavigate()
 
-    const { accessToken, setAccessToken, setUserId } = useAuth()
+    const { accessToken, setAccessToken, setUserId, setAuthenticated } = useAuth()
 
     const handleLogoutClick = async () => {
         await userLogout(accessToken)
         setAccessToken(null)
         setUserId(null)
+        setAuthenticated(false)
         closeModal()
         navigate("/login")
     }

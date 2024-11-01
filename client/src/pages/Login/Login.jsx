@@ -21,7 +21,7 @@ const Login = () => {
             setAccessToken(accessToken)
             setUserId(userId)
             setAuthenticated(true)
-            navigate('/')
+            navigate('/', { replace: true })
         } catch (err) {
             console.log(err, 'Login failed. Please check your credentials.')
         }
