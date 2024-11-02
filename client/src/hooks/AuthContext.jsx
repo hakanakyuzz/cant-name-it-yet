@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    const isLoginOrRegister = location.pathname !== '/login' && location.pathname !== '/register'
+    const notLoginOrRegister = location.pathname !== '/login' && location.pathname !== '/register'
 
     const initializeToken = async () => {
         try {
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        if (isLoginOrRegister)
+        if (notLoginOrRegister)
             initializeToken()
                 .then(null)
                 .catch(err => console.log(err))
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        if (!isLoading && !isAuthenticated && isLoginOrRegister) {
+        if (!isLoading && !isAuthenticated && notLoginOrRegister) {
             navigate('/login')
         }
     }, [])

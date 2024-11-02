@@ -15,7 +15,17 @@ const Layout = () => {
     const showFooter = !hideFooter.includes(currentPath)
     const showRightSide =  hideRightSide.includes(currentPath)
 
-    const { isAuthenticated, navigate } = useAuth()
+    const { isAuthenticated, isLoading, isError } = useAuth()
+
+    if (isLoading)
+        return (
+            <div>It is loading...</div>
+        )
+
+    if (isError)
+        return (
+            <div>An error occurred!</div>
+        )
 
     if (isAuthenticated)
     return (
@@ -28,9 +38,6 @@ const Layout = () => {
             {showRightSide && <RightSide/>}
         </div>
     )
-    else {
-        navigate('/login')
-    }
 }
 
 export default Layout

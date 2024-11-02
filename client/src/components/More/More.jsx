@@ -14,7 +14,7 @@ const More = ({ closeModal }) => {
         setUserId(null)
         setAuthenticated(false)
         closeModal()
-        navigate("/login")
+        navigate("/login", { replace: true })
     }
 
     return (
