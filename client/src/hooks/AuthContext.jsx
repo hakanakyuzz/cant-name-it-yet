@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { tokenRefresh } from "../utils/api.js";
-import {useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AuthContext = createContext(null)
 
@@ -43,12 +43,6 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        if (!isLoading && !isAuthenticated && notLoginOrRegister) {
-            navigate('/login')
-        }
-    }, [])
-
-    useEffect(() => {
         console.log("Access Token Changed:", accessToken)
     }, [accessToken])
 
@@ -69,6 +63,8 @@ export const AuthProvider = ({ children }) => {
             isAuthenticated,
             setUserId,
             setAccessToken,
+            setLoading,
+            setError,
             setAuthenticated,
             navigate
         }}>
