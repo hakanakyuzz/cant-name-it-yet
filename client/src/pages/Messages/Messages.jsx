@@ -1,12 +1,13 @@
 import './Messages.css'
 import { RiSendPlaneLine } from "react-icons/ri";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NewMessage from "../../components/NewMessage/NewMessage.jsx";
+import { useAuth } from "../../hooks/AuthContext.jsx";
 
 const Messages = () => {
-    const navigate = useNavigate()
     const [isNewMessageVisible, setNewMessageVisible] = useState(false)
+    const { navigate } = useAuth()
 
     const handleMessageOpen = () => {
         navigate("/messages/userId")
